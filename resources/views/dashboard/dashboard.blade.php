@@ -120,8 +120,8 @@
             border: none;
             font-family: "Merienda", cursive;
             font-optical-sizing: auto;
-        font-weight: <weight>;
-        font-style: normal;
+            font-weight: <weight>;
+            font-style: normal;
         }
 
         .admin-btn:hover,
@@ -261,8 +261,9 @@
 
             {{-- Blog Content --}}
             <div class="tab-pane fade" id="blogs" role="tabpanel">
-                <h3>Add Blogs</h3>
-                <p>Blog form or listing goes here.</p>
+
+                @include('db_includes.blog_add')
+
             </div>
 
             {{-- Menus --}}
