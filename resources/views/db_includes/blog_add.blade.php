@@ -25,7 +25,7 @@
             border-radius: 10px;
             box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
             margin-top: 30px;
-            background-color: aliceblue;
+            background-color: #f4f4f4;
         }
 
         .blog_btn {
@@ -51,7 +51,8 @@
 
             <div class="col-lg-12 col-md-8 col-sm-12 col-12">
                 <div class="crd12">
-                    <form action="">
+                    <form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
 
                         <div class="row">
 
@@ -80,7 +81,7 @@
 
                             <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                 <label for="">Favourite Images:</label>
-                                <input type="file" name="blog_Favimg" class="form-control">
+                                <input type="file" name="blog_Favimg[]" class="form-control">
                             </div>
 
                             <div class="col-lg-4 col-md-6 col-sm-12 col-12">
@@ -99,7 +100,7 @@
                         </div>
 
                         <div class="text-center">
-                            <button class="blog_btn">Publish as Blog</button>
+                            <button type="submit" class="blog_btn">Publish as Blog</button>
                         </div>
 
                     </form>

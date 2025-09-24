@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,6 @@ Route::get('/dashboard', function () {
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+
+// blogs data store
+Route::post('/blogs/store', [BlogController::class, 'store'])->name('blogs.store');
