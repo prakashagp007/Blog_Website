@@ -254,6 +254,7 @@
         {{-- Tab Content --}}
 
 
+
         <div class="tab-content flex-grow-1 p-3" id="sidebarTabContent">
             <div class="tab-pane fade show active" id="dashboard" role="tabpanel">
                 <h3>Dashboard</h3>
@@ -263,6 +264,7 @@
             <div class="tab-pane fade" id="blogs" role="tabpanel">
 
                 @include('db_includes.blog_add')
+
 
             </div>
 

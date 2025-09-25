@@ -75,21 +75,34 @@
                             </div>
 
                             <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                                <label for="">Location:</label>
+                                <input type="text" name="blog_location" class="form-control">
+                            </div>
+
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                 <label for="">Thumbnail Image:</label>
                                 <input type="file" name="blog_thumbnail" class="form-control">
                             </div>
 
                             <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                                 <label for="">Favourite Images:</label>
-                                <input type="file" name="blog_Favimg[]" class="form-control">
+                                <input type="file" name="blog_favimg" class="form-control">
                             </div>
 
                             <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                                <label for="">Location:</label>
-                                <input type="text" name="blog_location" class="form-control">
+                                <label for="">Favourite Images:</label>
+                                <input type="file" name="blog_favimg1" class="form-control">
                             </div>
 
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                                <label for="">Favourite Images:</label>
+                                <input type="file" name="blog_favimg2" class="form-control">
+                            </div>
 
+                            <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                                <label for="">Favourite Images:</label>
+                                <input type="file" name="blog_favimg3" class="form-control">
+                            </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                                 <label for="">Content:</label>

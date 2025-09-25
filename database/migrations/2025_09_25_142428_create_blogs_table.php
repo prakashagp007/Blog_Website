@@ -13,13 +13,17 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->string('blog_title');
-            $table->string('blog_cat');
-            $table->text('blog_description');
-            $table->string('blog_thumbnail')->nullable();
-            $table->text('blog_favimg')->nullable(); // will store JSON array of multiple images
-            $table->string('blog_location');
-            $table->longText('blog_content');
+
+        $table->string('blog_title');
+        $table->string('blog_cat');
+        $table->text('blog_description');
+        $table->string('blog_location');
+        $table->string('blog_thumbnail')->nullable();
+        $table->string('blog_favimg')->nullable();
+        $table->string('blog_favimg1')->nullable();
+        $table->string('blog_favimg2')->nullable();
+        $table->string('blog_favimg3')->nullable();
+        $table->longText('blog_content');
             $table->timestamps();
         });
     }

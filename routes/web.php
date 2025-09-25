@@ -32,3 +32,13 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // blogs data store
 Route::post('/blogs/store', [BlogController::class, 'store'])->name('blogs.store');
+
+
+// opening page display
+
+Route::get('/', function () {
+    return view('home.home');
+})->name('home');
+
+
+Route::get('/', [BlogController::class, 'index'])->name('home');
