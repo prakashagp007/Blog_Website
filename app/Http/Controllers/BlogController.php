@@ -16,6 +16,13 @@ class BlogController extends Controller
         return view('home.home', compact('blogs'));
     }
 
+    public function show($id)
+    {
+        $blog = Blog::findOrFail($id);  // fetch blog by ID or 404
+        return view('includes.content', compact('blog'));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */

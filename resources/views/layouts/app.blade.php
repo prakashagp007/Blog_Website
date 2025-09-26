@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My App</title>
+    <title>Gp Blog</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <header>
-        <h1>My Laravel App</h1>
-    </header>
+
 
     <main>
         {{-- includes inject --}}
@@ -21,9 +19,7 @@
         @yield('content')
     </main>
 
-    <footer>
-        <p>All rights reserved.</p>
-    </footer>
+
 </body>
 
 </html>

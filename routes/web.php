@@ -4,6 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 
+
+
+// (you probably already have edit/update routes)
+// Route::get('/image/{id}/edit', [ImageController::class, 'edit'])->name('image.edit');
+// Route::post('/image/{id}/update', [ImageController::class, 'update'])->name('image.update');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,11 +40,14 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/blogs/store', [BlogController::class, 'store'])->name('blogs.store');
 
 
-// opening page display
-
-Route::get('/', function () {
-    return view('home.home');
-})->name('home');
 
 
+// Route::get('/', [BlogController::class, 'index'])->name('home');
+
+// opening page route 
 Route::get('/', [BlogController::class, 'index'])->name('home');
+
+Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+
+
+
