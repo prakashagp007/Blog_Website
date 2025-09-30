@@ -174,6 +174,15 @@
 </head>
 
 <body>
+
+    @if (session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
+
+
+
     <!-- Sidebar -->
     <div class="sidebar d-flex flex-column">
         <div class="sidebar-brand  d-flex justify-content-between align-items-center">
@@ -270,8 +279,7 @@
 
             {{-- Menus --}}
             <div class="tab-pane fade" id="menus" role="tabpanel">
-                <h3>Menus</h3>
-                <p>Menu management content here.</p>
+                @include('db_includes.add_header')
             </div>
 
             {{-- Logo --}}

@@ -5,16 +5,24 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 
+// BlogController.php
+use App\Models\Header;
+
+
+
 class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $blogs = Blog::all();
-        return view('home.home', compact('blogs'));
-    }
+{
+    $blogs = Blog::latest()->get();
+    $headers = Header::all();
+
+    return view('home.home', compact('blogs', 'headers'));
+}
+
 
     public function show($id)
     {

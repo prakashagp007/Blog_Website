@@ -66,6 +66,18 @@
                                 <select name="blog_cat" class="form-control" id="">
                                     <option value=""></option>
                                     <option value="Travel">Travel</option>
+                                    <option value="Relationship">Relationship</option>
+                                    <option value="Music">Music</option>
+                                    <option value="Writing & Journaling">Writing & Journaling</option>
+                                    <option value="Saving Money">Saving Money</option>
+                                    <option value="Fashion & Style">Fashion & Style</option>
+                                    <option value="Personal Development">Personal Development</option>
+                                    <option value="Entrepreneurship">Entrepreneurship</option>
+                                    <option value="Career Advice">Career Advice</option>
+                                    <option value="Tech Reviews">Tech Reviews</option>
+                                    <option value="Coding & Programming">Coding & Programming</option>
+                                    <option value="Online Courses">Online Courses</option>
+                                    
                                 </select>
                             </div>
 
