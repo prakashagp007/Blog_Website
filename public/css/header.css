@@ -93,6 +93,7 @@
     padding: 15px 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     gap: 15px;
+    border-radius: 15px;
 }
 
 /* Show mobile menu */
@@ -115,6 +116,9 @@
 }
 .inp-header{
     color: #795c45 !important;
+    font-family: "Redressed", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 .inp-header:focus {
     box-shadow: none !important;

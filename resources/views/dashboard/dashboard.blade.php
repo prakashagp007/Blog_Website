@@ -175,11 +175,6 @@
 
 <body>
 
-    @if (session('message'))
-    <div class="alert alert-success">
-        {{ session('message') }}
-    </div>
-@endif
 
 
 
@@ -266,6 +261,11 @@
 
         <div class="tab-content flex-grow-1 p-3" id="sidebarTabContent">
             <div class="tab-pane fade show active" id="dashboard" role="tabpanel">
+                @if (session('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                @endif
                 <h3>Dashboard</h3>
             </div>
 

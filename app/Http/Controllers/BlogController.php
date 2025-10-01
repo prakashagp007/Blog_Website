@@ -19,15 +19,17 @@ class BlogController extends Controller
 {
     $blogs = Blog::latest()->get();
     $headers = Header::all();
+    $latestblogs = Blog::latest()->take(2)->get();
 
-    return view('home.home', compact('blogs', 'headers'));
+    return view('home.home', compact('blogs', 'headers','latestblogs'));
 }
 
 
     public function show($id)
     {
         $blog = Blog::findOrFail($id);  // fetch blog by ID or 404
-        return view('includes.content', compact('blog'));
+        $headers = Header::all();
+        return view('content.content', compact('blog', 'headers'));
     }
 
 
@@ -81,7 +83,8 @@ class BlogController extends Controller
             'blog_content'  => $request->blog_content,
         ]);
 
-        return view('dashboard.dashboard')->with('message', 'Successfully Logged In!');
+        // return back()->with('message', 'Successfully Logged In!');
+        return back()->with('message', 'Successfully Logged In!');
 
     }
 

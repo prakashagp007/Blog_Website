@@ -33,3 +33,4 @@ Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 // Route::get('/', [HeaderController::class, 'index']);
 Route::post('/admin/header/store', [HeaderController::class, 'store'])->name('header.store');
+

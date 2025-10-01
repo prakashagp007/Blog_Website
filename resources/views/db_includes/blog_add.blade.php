@@ -43,6 +43,9 @@
         }
     </style>
 
+
+
+
     <div class="container">
 
         <h2 class="blog_ttl">Add Blog</h2>
@@ -77,7 +80,7 @@
                                     <option value="Tech Reviews">Tech Reviews</option>
                                     <option value="Coding & Programming">Coding & Programming</option>
                                     <option value="Online Courses">Online Courses</option>
-                                    
+
                                 </select>
                             </div>
 

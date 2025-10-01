@@ -25,19 +25,19 @@
              alt="{{ $blog->blog_title }}">
 
               <img src="{{ $blog->blog_favimg1
-                    ? asset('uploads/fav_img1/' . $blog->blog_favimg1)
+                    ? asset('uploads/fav_img2/' . $blog->blog_favimg1)
                     : asset('uploads/thumbnails/default.jpg') }}"
              class="card-img-top"
              alt="{{ $blog->blog_title }}">
 
               <img src="{{ $blog->blog_favimg2
-                    ? asset('uploads/fav_img2/' . $blog->blog_favimg2)
+                    ? asset('uploads/fav_img3/' . $blog->blog_favimg2)
                     : asset('uploads/thumbnails/default.jpg') }}"
              class="card-img-top"
              alt="{{ $blog->blog_title }}">
 
              <img src="{{ $blog->blog_favimg3
-                    ? asset('uploads/fav_img3/' . $blog->blog_favimg3)
+                    ? asset('uploads/fav_img4/' . $blog->blog_favimg3)
                     : asset('uploads/thumbnails/default.jpg') }}"
              class="card-img-top"
              alt="{{ $blog->blog_title }}">

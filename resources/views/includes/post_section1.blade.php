@@ -10,12 +10,14 @@
 </style>
 
 <section>
+
+@include('includes.banner')
     <div class="container">
 
         @if ($blogs && $blogs->count())
             <div class="row">
                 @foreach ($blogs as $blog)
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-4">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-12 mb-4">
                         <a href="{{ route('blog.show', $blog->id) }}" class="text-decoration-none text-dark">
                             <div class="card crd_ps1 h-100 shadow-sm">
                                 <img class="img-ps1"
