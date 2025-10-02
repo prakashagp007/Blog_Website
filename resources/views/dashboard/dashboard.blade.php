@@ -267,6 +267,7 @@
                     </div>
                 @endif
                 <h3>Dashboard</h3>
+                @include('db_includes.db_table')
             </div>
 
             {{-- Blog Content --}}

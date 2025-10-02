@@ -24,6 +24,16 @@ class BlogController extends Controller
     return view('home.home', compact('blogs', 'headers','latestblogs'));
 }
 
+// dashboard table for alteration
+
+    public function table()
+{
+    $blogs = Blog::latest()->paginate(10);
+    // $headers = Header::all();
+
+    return view('dashboard.dashboard', compact('blogs'));
+}
+
 
     public function show($id)
     {
@@ -91,11 +101,17 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    // public function show(string $id)
-    // {
-    //     //
-    // }
+    public function view($id)
+    {
+        $infos = Blog::find($id);
+        return view('db_includes.view', compact('infos'));
+    }
 
+        public function edit($id)
+    {
+        $blog = Blog::find($id);
+        return view('db_includes.edit_blog', compact('blog'));
+    }
     /**
      * Show the form for editing the specified resource.
      */
@@ -107,50 +123,52 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    // public function update(Request $request, Blog $blog)
-    // {
-    //     $request->validate([
-    //         'blog_title' => 'required|string|max:255',
-    //         'blog_cat' => 'required|string',
-    //         'blog_description' => 'required|string',
-    //         'blog_location' => 'required|string',
-    //         'blog_content' => 'required|string',
-    //     ]);
+    public function update(Request $request, $id)
+    {
+        $blog = Blog::findOrFail($id);
+        $request->validate([
+            'blog_title' => 'required|string|max:255',
+            'blog_cat' => 'required|string',
+            'blog_description' => 'required|string',
+            'blog_location' => 'required|string',
+            'blog_content' => 'required|string',
+        ]);
 
-    //     // Upload helper
-    //     function uploadImage($file, $folder)
-    //     {
-    //         if ($file) {
-    //             $imageName = time().'_'.$file->getClientOriginalName();
-    //             $file->move(public_path("uploads/$folder"), $imageName);
-    //             return $imageName;
-    //         }
-    //         return null;
-    //     }
+        // Upload helper
+        function uploadImage($file, $folder)
+        {
+            if ($file) {
+                $imageName = time().'_'.$file->getClientOriginalName();
+                $file->move(public_path("uploads/$folder"), $imageName);
+                return $imageName;
+            }
+            return null;
+        }
 
-    //     $blog->update([
-    //         'blog_title' => $request->blog_title,
-    //         'blog_cat' => $request->blog_cat,
-    //         'blog_description' => $request->blog_description,
-    //         'blog_location' => $request->blog_location,
-    //         'blog_content'  => $request->blog_content,
-    //         'blog_thumbnail' => $request->blog_thumbnail ? uploadImage($request->blog_thumbnail, 'thumbnails') : $blog->blog_thumbnail,
-    //         'blog_favimg'   => $request->blog_favimg ? uploadImage($request->blog_favimg, 'fav_img') : $blog->blog_favimg,
-    //         'blog_favimg1'  => $request->blog_favimg1 ? uploadImage($request->blog_favimg1, 'fav_img') : $blog->blog_favimg1,
-    //         'blog_favimg2'  => $request->blog_favimg2 ? uploadImage($request->blog_favimg2, 'fav_img') : $blog->blog_favimg2,
-    //         'blog_favimg3'  => $request->blog_favimg3 ? uploadImage($request->blog_favimg3, 'fav_img') : $blog->blog_favimg3,
-    //     ]);
+        $blog->update([
+            'blog_title' => $request->blog_title,
+            'blog_cat' => $request->blog_cat,
+            'blog_description' => $request->blog_description,
+            'blog_location' => $request->blog_location,
+            'blog_content'  => $request->blog_content,
+            'blog_thumbnail' => $request->blog_thumbnail ? uploadImage($request->blog_thumbnail, 'thumbnails') : $blog->blog_thumbnail,
+            'blog_favimg'   => $request->blog_favimg ? uploadImage($request->blog_favimg, 'fav_img') : $blog->blog_favimg,
+            'blog_favimg1'  => $request->blog_favimg1 ? uploadImage($request->blog_favimg1, 'fav_img2') : $blog->blog_favimg1,
+            'blog_favimg2'  => $request->blog_favimg2 ? uploadImage($request->blog_favimg2, 'fav_img3') : $blog->blog_favimg2,
+            'blog_favimg3'  => $request->blog_favimg3 ? uploadImage($request->blog_favimg3, 'fav_img4') : $blog->blog_favimg3,
+        ]);
 
-    //     return redirect()->route('blogs.index')->with('success', 'Blog Updated Successfully!');
-    // }
+        return redirect()->route('dashboard')->with('success', 'Blog Updated Successfully!');
+    }
 
 
     /**
      * Remove the specified resource from storage.
      */
-    // public function destroy(Blog $blog)
-    // {
-    //     $blog->delete();
-    //     return redirect()->route('blogs.index')->with('success', 'Blog Deleted Successfully!');
-    // }
+    public function destroy($id)
+    {
+        $blog=Blog::findOrFail($id);
+        $blog->delete();
+        return redirect()->route('dashboard')->with('success', 'Blog Deleted Successfully!');
+    }
 }
