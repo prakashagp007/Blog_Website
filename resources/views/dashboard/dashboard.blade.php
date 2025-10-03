@@ -14,8 +14,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
-        href="https://fonts.googleapis.com/css2?family=Aclonica&family=Emblema+One&family=IM+Fell+Great+Primer+SC&family=Wallpoet&family=Yatra+One&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Aclonica&family=Comfortaa:wght@300..700&family=Emblema+One&family=IM+Fell+Great+Primer+SC&family=Keania+One&family=Lemonada:wght@300..700&family=Overlock+SC&family=Redressed&family=Wallpoet&family=Yatra+One&display=swap"
         rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
@@ -45,7 +46,7 @@
         }
 
         .sidebar-brand {
-            height: 70px;
+            height: 100px;
             display: flex;
             align-items: center;
             padding: 0 1rem;
@@ -170,6 +171,12 @@
                 width: 150px;
             }
         }
+
+        .logo {
+            width: 100px;
+            margin: 0px auto;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -181,7 +188,7 @@
     <!-- Sidebar -->
     <div class="sidebar d-flex flex-column">
         <div class="sidebar-brand  d-flex justify-content-between align-items-center">
-            <h3>Blogs</h3>
+            <img src="{{ asset('images/GP logo1.png') }}" class="logo" alt="">
             <button class="btn btn-sm btn-light d-md-none" id="sidebar-close">
                 <i class="fas fa-times"></i>
             </button>
@@ -261,13 +268,11 @@
 
         <div class="tab-content flex-grow-1 p-3" id="sidebarTabContent">
             <div class="tab-pane fade show active" id="dashboard" role="tabpanel">
-                @if (session('message'))
-                    <div class="alert alert-success">
-                        {{ session('message') }}
-                    </div>
-                @endif
-                <h3>Dashboard</h3>
+
                 @include('db_includes.db_table')
+
+                @include('db_includes.header_table')
+
             </div>
 
             {{-- Blog Content --}}

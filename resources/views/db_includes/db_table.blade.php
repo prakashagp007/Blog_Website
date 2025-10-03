@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="{{ asset('css/db_table.css') }}">
 
+<h3 class="tbl-ttl"><span>Blogs</span></h3>
 
 <table class="table table-bordered table1">
     <thead class="table-head">
@@ -36,37 +37,43 @@
 
                 {{-- Fav Images --}}
                 <td>
-                    <span>
-                        @if ($blog->blog_favimg)
-                            <img src="{{ asset('uploads/fav_img/' . $blog->blog_favimg) }}" alt="Fav Image" width="60">
-                        @else
-                            No Image
-                        @endif
-                    </span>
-                    <span>
-                        @if ($blog->blog_favimg1)
-                            <img src="{{ asset('uploads/fav_img2/' . $blog->blog_favimg1) }}" alt="Fav Image"
-                                width="60">
-                        @else
-                            No Image
-                        @endif
-                    </span>
-                    <span>
-                        @if ($blog->blog_favimg2)
-                            <img src="{{ asset('uploads/fav_img3/' . $blog->blog_favimg2) }}" alt="Fav Image"
-                                width="60">
-                        @else
-                            No Image
-                        @endif
-                    </span>
-                    <span>
-                        @if ($blog->blog_favimg3)
-                            <img src="{{ asset('uploads/fav_img4/' . $blog->blog_favimg3) }}" alt="Fav Image"
-                                width="60">
-                        @else
-                            No Image
-                        @endif
-                    </span>
+                    <div class="d-flex gap-2">
+                        <span>
+                            @if ($blog->blog_favimg)
+                                <img src="{{ asset('uploads/fav_img/' . $blog->blog_favimg) }}" alt="Fav Image"
+                                    width="60">
+                            @else
+                                No Image
+                            @endif
+                        </span>
+                        <span>
+                            @if ($blog->blog_favimg1)
+                                <img src="{{ asset('uploads/fav_img2/' . $blog->blog_favimg1) }}" alt="Fav Image"
+                                    width="60">
+                            @else
+                                No Image
+                            @endif
+                        </span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <span>
+                            @if ($blog->blog_favimg2)
+                                <img src="{{ asset('uploads/fav_img3/' . $blog->blog_favimg2) }}" alt="Fav Image"
+                                    width="60">
+                            @else
+                                No Image
+                            @endif
+                        </span>
+                        <span>
+                            @if ($blog->blog_favimg3)
+                                <img src="{{ asset('uploads/fav_img4/' . $blog->blog_favimg3) }}" alt="Fav Image"
+                                    width="60">
+                            @else
+                                No Image
+                            @endif
+                        </span>
+                    </div>
                 </td>
 
                 <td>{{ Str::limit($blog->blog_content, 200) }}</td>

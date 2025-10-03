@@ -29,9 +29,9 @@ class BlogController extends Controller
     public function table()
 {
     $blogs = Blog::latest()->paginate(10);
-    // $headers = Header::all();
+    $headers = Header::all();
 
-    return view('dashboard.dashboard', compact('blogs'));
+    return view('dashboard.dashboard', compact('blogs','headers'));
 }
 
 
@@ -104,13 +104,25 @@ class BlogController extends Controller
     public function view($id)
     {
         $infos = Blog::find($id);
+
         return view('db_includes.view', compact('infos'));
     }
 
-        public function edit($id)
+    public function headerview($id){
+        $headers = Header::find($id);
+        return view('db_includes.header_view', compact('headers'));
+    }
+
+    public function edit($id)
     {
         $blog = Blog::find($id);
         return view('db_includes.edit_blog', compact('blog'));
+    }
+
+    public function headeredit($id)
+    {
+        $headers = Header::find($id);
+        return view('db_includes.edit_header', compact('headers'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -162,6 +174,39 @@ class BlogController extends Controller
     }
 
 
+
+
+    public function headerupdate(Request $request, $id)
+{
+    $request->validate([
+        'menu_name' => 'required|string|max:255',
+        'menu_link' => 'required|string|max:255',
+        'logo' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+    ]);
+
+    $header = Header::findOrFail($id);
+
+    $path = $header->logo; // keep old logo if not updated
+    if ($request->hasFile('logo')) {
+        // Optional: delete old logo if exists
+        if ($header->logo && \Storage::exists($header->logo)) {
+            \Storage::delete($header->logo);
+        }
+
+        $path = $request->file('logo')->store('uploads', 'public');
+    }
+
+    $header->update([
+        'logo' => $path,
+        'menu_name' => $request->menu_name,
+        'menu_link' => $request->menu_link,
+        'button_name' => $request->button_name,
+        'button_link' => $request->button_link,
+    ]);
+
+    return redirect()->route('dashboard')->with('success', 'Header Item Updated!');
+}
+
     /**
      * Remove the specified resource from storage.
      */
@@ -170,5 +215,12 @@ class BlogController extends Controller
         $blog=Blog::findOrFail($id);
         $blog->delete();
         return redirect()->route('dashboard')->with('success', 'Blog Deleted Successfully!');
+    }
+
+        public function headerdestroy($id)
+    {
+        $headers=Header::findOrFail($id);
+        $headers->delete();
+        return redirect()->route('dashboard')->with('success', 'Header Deleted Successfully!');
     }
 }

@@ -26,6 +26,13 @@ Route::get('/dashboard', [BlogController::class, 'table'])
 
     Route::delete('/blogs/{id}/destroy', [BlogController::class, 'destroy'])->name('blogs.delete');
 
+    // header table crud
+
+    Route::get('/header/{id}/view',[BlogController::class, 'headerview'])->name('header.view');
+
+    Route::get('/header/{id}/edit', [BlogController::class, 'headeredit'])->name('header.edit');
+     Route::put('/header/{id}/update', [BlogController::class, 'headerupdate'])->name('header.update');
+    Route::delete('/header/{id}/destroy', [BlogController::class, 'headerdestroy'])->name('header.delete');
 
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
