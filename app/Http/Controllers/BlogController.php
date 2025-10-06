@@ -19,7 +19,7 @@ class BlogController extends Controller
 {
     $blogs = Blog::latest()->get();
     $headers = Header::all();
-    $latestblogs = Blog::latest()->take(2)->get();
+    $latestblogs = Blog::latest()->take(4)->get();
 
     return view('home.home', compact('blogs', 'headers','latestblogs'));
 }
@@ -28,7 +28,7 @@ class BlogController extends Controller
 
     public function table()
 {
-    $blogs = Blog::latest()->paginate(10);
+    $blogs = Blog::latest()->paginate(5);
     $headers = Header::all();
 
     return view('dashboard.dashboard', compact('blogs','headers'));

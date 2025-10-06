@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 
 use App\Http\Controllers\HeaderController;
+use App\Http\Controllers\SocialLinkController;
 
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -54,5 +55,8 @@ Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 // Route::get('/', [HeaderController::class, 'index']);
 Route::post('/admin/header/store', [HeaderController::class, 'store'])->name('header.store');
+
+// social media store
+Route::post('/admin/socialmedia/store', [SocialLinkController::class, 'store'])->name('sociallinks.store');
 
 // Route::get('/dashboard/table', [BlogController::class, 'table'])->name('blog.table');

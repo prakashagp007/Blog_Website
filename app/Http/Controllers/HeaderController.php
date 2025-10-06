@@ -8,19 +8,7 @@ use App\Models\Header;
 
 class HeaderController extends Controller
 {
-    //
 
-    //   public function index()
-    // {
-    //     $headers = Header::all();
-    //     return view('includes.header', compact('headers'));
-    // }
-
-    // Admin form (show add page)
-    // public function create()
-    // {
-    //     return view('includes.header');
-    // }
 
     // Store menu/logo in DB
     public function store(Request $request)

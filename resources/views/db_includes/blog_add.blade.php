@@ -3,7 +3,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Aclonica&family=Comfortaa:wght@300..700&family=Emblema+One&family=IM+Fell+Great+Primer+SC&family=Keania+One&family=Lemonada:wght@300..700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Merienda:wght@300..900&family=Overlock+SC&family=Redressed&family=Uncial+Antiqua&family=Wallpoet&family=Yatra+One&display=swap"
+        rel="stylesheet">
 
 
     <style>
@@ -17,15 +19,12 @@
             margin-top: 10px;
         }
 
-        /* Text Gradient CSS */
-        .text-gradient {}
-
         .crd12 {
             padding: 20px;
             border-radius: 10px;
-            box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
             margin-top: 30px;
-            background-color: #f4f4f4;
+            background-color: whitesmoke;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         }
 
         .blog_btn {
@@ -36,10 +35,18 @@
             border: none;
             padding: 8px 15px;
             border-radius: 5px;
+            font-family: "Keania One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
         }
 
         label {
             margin-top: 8px;
+            font-family: "Redressed", cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 20px;
+            margin-bottom: 5px;
         }
     </style>
 
@@ -128,7 +135,8 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="blog_btn">Publish as Blog</button>
+                            <button type="submit" class="blog_btn">Publish as Blog <i
+                                    class="fa-solid fa-download"></i></button>
                         </div>
 
                     </form>

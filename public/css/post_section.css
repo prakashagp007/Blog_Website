@@ -1,0 +1,110 @@
+.blog-heading {
+    font-size: 30px;
+    text-align: center;
+    margin: 30px 0px;
+    font-family: "Aclonica", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #795c45;
+}
+
+.crd_ps1 {
+    position: relative;
+}
+
+.abs {
+    position: absolute;
+    background-color: white;
+    color: #795c45;
+    top: 2%;
+    right: 2%;
+    padding: 1px 10px;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+
+
+/* --- Overall Section Styling --- */
+
+.blog-heading {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #2b2b2b;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.blog-heading::after {
+    content: "";
+    width: 80px;
+    height: 3px;
+    background: #007bff;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 10px;
+}
+
+/* --- Card Styling --- */
+.crd_ps1 {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+}
+
+.crd_ps1:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Image --- */
+.img-ps1 {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.crd_ps1:hover .img-ps1 {
+    transform: scale(1.05);
+}
+
+/* --- Card Body --- */
+.crd_bdy_ps1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.crd_ttl_ps1 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.crd_ps1:hover .crd_ttl_ps1 {
+    color: #007bff;
+}
+
+.crd_txt_ps1 {
+    color: #6c757d;
+    font-size: 0.95rem;
+    min-height: 50px;
+}
+
+.crd_date_ps1 {
+    font-size: 0.85rem;
+    color: #adb5bd;
+    margin-top: 10px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .img-ps1 {
+        height: 180px;
+    }
+}

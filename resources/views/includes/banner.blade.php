@@ -1,104 +1,73 @@
-    <link rel="stylesheet" href="{{ asset('css/banner.css') }}">
+<link rel="stylesheet" href="{{ asset('css/banner.css') }}">
 
-    {{-- banner --}}
-    <div class="banner-section">
+<section class="banner-section container-lg py-3">
 
-        <div class="row">
-            <div class="col-lg-7 col-md-7 col-sm-12 col-12">
+    <div class="row align-items-center gx-4">
 
-                @if ($blogs && $blogs->count())
-                    <div id="blogCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
+        {{-- Carousel --}}
+        <div class="col-lg-8 col-md-12 mb-4">
+            @if ($blogs && $blogs->count())
+                <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                    <div class="carousel-inner">
 
-                            @foreach ($blogs as $index => $blog)
-                                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                    <div class="card-banner">
-                                        <img class="banner-img"
-                                            src="{{ $blog->blog_thumbnail
-                                                ? asset('uploads/thumbnails/' . $blog->blog_thumbnail)
-                                                : asset('uploads/thumbnails/default.jpg') }}"
-                                            alt="{{ $blog->blog_title }}">
-                                        <a href="{{ route('blog.show', $blog->id) }}" class="text-muted">
-                                            <div class="card-body banner_text pt-3 text-center">
-                                                <h5 class="banner-title ">{{ $blog->blog_title }}</h5>
-                                                <p class="banner-text ">
-                                                    {{ Str::limit($blog->blog_description, 100) }}</p>
-                                                <p class="text-muted">
-                                                    Published on {{ $blog->created_at->format('d M, Y') }}
-                                                </p>
-
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                            <!-- Controls -->
-                            <button class="carousel-control-prev" type="button" data-bs-target="#blogCarousel"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#blogCarousel"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    @else
-                        <p>No blogs found.</p>
-                @endif
-
-            </div>
-        </div>
-
-        <div class="col-lg-5 col-md-5 col-sm-12 col-12">
-            @if ($latestblogs && $latestblogs)
-                    @foreach ($latestblogs as $blog)
-                        <div class="">
-                            <a href="{{ route('blog.show', $blog->id) }}" class="text-decoration-none text-dark">
-                                <div class=" banner-card2 mb-3">
-                                    <div>
-                                    <img class="banner-img2"
+                        @foreach ($blogs as $index => $blog)
+                            <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                <div class="hero-slide position-relative">
+                                    <img class="hero-img"
                                         src="{{ $blog->blog_thumbnail
                                             ? asset('uploads/thumbnails/' . $blog->blog_thumbnail)
                                             : asset('uploads/thumbnails/default.jpg') }}"
                                         alt="{{ $blog->blog_title }}">
-                                        </div>
-                                    <div class="banner_text2 text-center d-flex  justify-content-around py-2 align-items-center">
-                                        <h5 class="banner-title2 ">{{ $blog->blog_title }}</h5>
-                                        {{-- <p class="banner-text2 ">{{ Str::limit($blog->blog_description, 100) }}
+
+                                    <div class="caption-box text-center">
+                                        <h2 class="caption-title">{{ $blog->blog_title }}</h2>
+                                        <p class="caption-text">{{ Str::limit($blog->blog_description, 100) }}</p>
+                                        {{-- <p class="caption-date">
+                                            <i class="fa-regular fa-calendar"></i>
+                                            {{ $blog->created_at->format('d M, Y') }}
                                         </p> --}}
-                                        <p class="text-muted m-0 p-0" style="font-size: 0.9rem;">
-                                            Published on {{ $blog->created_at->format('d M, Y') }}
-                                        </p>
+                                        <a href="{{ route('blog.show', $blog->id) }}" class="read-btn">Read More <i
+                                                class="fa-solid fa-arrow-right"></i></a>
                                     </div>
                                 </div>
-                            </a>
-                        </div>
-                    @endforeach
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <!-- Navigation -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel"
+                        data-bs-slide="prev">
+                        <span class="nav-btn"><i class="fa-solid fa-chevron-left"></i></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel"
+                        data-bs-slide="next">
+                        <span class="nav-btn"><i class="fa-solid fa-chevron-right"></i></span>
+                    </button>
+                </div>
             @endif
-
-
-
-
         </div>
 
 
-
-
+        <div class="col-lg-4 col-md-12">
+            @if ($latestblogs && $latestblogs)
+                {{-- <h4 class="trend-heading mb-3">Trending Now</h4> --}}
+                @foreach ($latestblogs as $blog)
+                    <a href="{{ route('blog.show', $blog->id) }}" class="text-decoration-none text-dark">
+                        <div class="trend-card d-flex align-items-center mb-3 shadow-sm rounded-4">
+                            <img class="trend-img"
+                                src="{{ $blog->blog_thumbnail
+                                    ? asset('uploads/thumbnails/' . $blog->blog_thumbnail)
+                                    : asset('uploads/thumbnails/default.jpg') }}"
+                                alt="{{ $blog->blog_title }}">
+                            <div class="trend-body ps-3">
+                                <h6 class="trend-title">{{ $blog->blog_title }}</h6>
+                                <p class="trend-date m-0">{{ $blog->created_at->format('d M, Y') }}</p>
+                            </div>
+                        </div>
+                    </a>
+                @endforeach
+            @endif
+        </div>
 
     </div>
-    </div>
-
-    {{-- banner --}}
-
-
-
-
-
-
-
-
-
-    {{--  --}}
+</section>

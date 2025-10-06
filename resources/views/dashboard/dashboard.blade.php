@@ -16,10 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Aclonica&family=Comfortaa:wght@300..700&family=Emblema+One&family=IM+Fell+Great+Primer+SC&family=Keania+One&family=Lemonada:wght@300..700&family=Overlock+SC&family=Redressed&family=Wallpoet&family=Yatra+One&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Aclonica&family=Comfortaa:wght@300..700&family=Emblema+One&family=IM+Fell+Great+Primer+SC&family=Keania+One&family=Lemonada:wght@300..700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Merienda:wght@300..900&family=Overlock+SC&family=Redressed&family=Uncial+Antiqua&family=Wallpoet&family=Yatra+One&display=swap"
         rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -119,10 +117,13 @@
             background: linear-gradient(90deg, rgba(5, 55, 95, 1) 0%, rgba(108, 202, 232, 1) 100%);
             color: white;
             border: none;
-            font-family: "Merienda", cursive;
-            font-optical-sizing: auto;
-            font-weight: <weight>;
+            font-family: "Aclonica", sans-serif;
+            font-weight: 200;
             font-style: normal;
+        }
+
+        .admin-btn i {
+            font-size: 20px;
         }
 
         .admin-btn:hover,
@@ -213,13 +214,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="logo-tab" data-bs-toggle="pill" href="#logo" role="tab">
-                        <i class="fa-solid fa-images"></i> <span>Logo</span>
+                    <a class="nav-link" id="social-media-tab" data-bs-toggle="pill" href="#social-media" role="tab">
+                        <i class="fa-solid fa-images"></i> <span>Social Medias</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="analytics-tab" data-bs-toggle="pill" href="#analytics" role="tab">
-                        <i class="fas fa-chart-bar"></i> <span>Analytics</span>
+                    <a class="nav-link" id="footer-tab" data-bs-toggle="pill" href="#footer" role="tab">
+                        <i class="fas fa-chart-bar"></i> <span>Footer</span>
                     </a>
                 </li>
             </ul>
@@ -249,8 +250,7 @@
                 <div class="dropdown">
                     <button class="btn admin-btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
 
-                        <i class="fa-solid fa-circle-user"></i>
-                        <span class="d-none d-md-inline">prakash</span>
+                        <i class="fa-solid fa-circle-user"></i> prakash
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="{{ route('logout') }}"><i
@@ -268,6 +268,14 @@
 
         <div class="tab-content flex-grow-1 p-3" id="sidebarTabContent">
             <div class="tab-pane fade show active" id="dashboard" role="tabpanel">
+
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
 
                 @include('db_includes.db_table')
 
@@ -289,9 +297,8 @@
             </div>
 
             {{-- Logo --}}
-            <div class="tab-pane fade" id="logo" role="tabpanel">
-                <h3>Logo</h3>
-                <p>Upload/change logo section here.</p>
+            <div class="tab-pane fade" id="social-media" role="tabpanel">
+                @include('db_includes.add_social_icons')
             </div>
 
             {{-- Analytics --}}

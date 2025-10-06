@@ -1,54 +1,187 @@
-.banner-img {
-    width: 100%;
-    height: 80vh;
-     box-shadow: 0px 8px 15px -5px rgba(255, 255, 255, 0.8);
+/* --- Main Section --- */
+.banner-section {
+    /* background: linear-gradient(135deg, #f8faff 0%, #eaf3ff 100%); */
+    border-radius: 30px;
+    overflow: hidden;
 }
 
-.card-banner {
+/* --- Carousel Image --- */
+.hero-slide {
     position: relative;
+    border-radius: 8px;
     overflow: hidden;
-    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
-.banner_text {
-  position: absolute;
-  bottom: 6%;
-  background-color: rgba(240, 248, 255, 0.93);
-  width: 70%;
-  margin: 0px auto;
-  left: 14%;
-  border-radius: 10px;
-}
-.banner-section{
-    padding: 5px 65px;
-}
-
-
-/*  */
-
-.banner-img2{
+.hero-img {
     width: 100%;
-    height: 30vh;
+    height: 70vh;
     object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.7s ease;
+    filter: brightness(95%);
 }
-.banner-card2{
-    border-radius: 15px;
-    background-color: white;
+
+.hero-slide:hover .hero-img {
+    transform: scale(1.06);
+}
+
+/* --- Floating Caption Box --- */
+.caption-box {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px 30px;
+    width: 70%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    animation: fadeUp 1s ease;
+}
+
+.caption-title {
+    font-size: 2rem;
+    color: #795c45;
+    font-family: "Redressed", cursive;
+    font-weight: 400;
+    font-style: normal;
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
 }
 
+.caption-text {
+    color: #333;
+    font-family: "merienda", cursive;
+    font-size: 1rem;
+    margin: 10px 0;
+}
 
-@media (max-width:768px){
-    .banner-section{
-        padding: 10px;
+.caption-date {
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+/* --- Button --- */
+.read-btn {
+    background: linear-gradient(90deg, rgb(123, 93, 68) 0%, rgb(203, 168, 142) 100%);
+    color: white;
+    font-weight: 600;
+    padding: 8px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-family: "Keania One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.read-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* --- Carousel Arrows --- */
+.nav-btn {
+    background: #ffffff;
+    color: #795c45;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: #795c45;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* --- Trending Section --- */
+.trend-heading {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    color: #007bff;
+    position: relative;
+}
+
+.trend-heading::after {
+    content: "";
+    width: 60px;
+    height: 3px;
+    background: #00bfff;
+    display: block;
+    margin-top: 6px;
+    border-radius: 5px;
+}
+
+.trend-card {
+    background: #ffffff;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.trend-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.1);
+}
+.trend-body{
+    overflow: hidden;
+
+}
+
+.trend-img {
+    width: 90px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.trend-title {
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+     font-family: "Redressed", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.trend-date {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* --- Animation --- */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 30px);
     }
-    .header_one{
-        width:98%;
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
     }
-    .banner-img{
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    .hero-img {
         height: 60vh;
     }
-    .banner-card2{
-        margin-top: 10px;
+
+    .caption-box {
+        width: 85%;
+        padding: 15px;
     }
 }

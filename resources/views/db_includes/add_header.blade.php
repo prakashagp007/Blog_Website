@@ -2,6 +2,7 @@
     .cd {
         background-color: whitesmoke;
         border: none;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
 
     .crd {
@@ -18,6 +19,9 @@
         border: none;
         padding: 8px 15px;
         border-radius: 6px;
+        font-family: "Keania One", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
 </style>
 
@@ -69,7 +73,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button class="upd-btn" type="submit">Update</button>
+                <button class="upd-btn" type="submit">Publish <i class="fa-solid fa-download"></i> </button>
             </div>
         </form>
     </div>
