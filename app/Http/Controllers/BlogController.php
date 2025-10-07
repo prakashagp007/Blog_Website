@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 // BlogController.php
 use App\Models\Header;
+use App\Models\SocialLink;
 
 
 
@@ -20,18 +21,19 @@ class BlogController extends Controller
     $blogs = Blog::latest()->get();
     $headers = Header::all();
     $latestblogs = Blog::latest()->take(4)->get();
-
-    return view('home.home', compact('blogs', 'headers','latestblogs'));
+    $socialLinks = SocialLink::all();
+    return view('home.home', compact('blogs', 'headers','latestblogs','socialLinks'));
 }
 
 // dashboard table for alteration
 
     public function table()
 {
-    $blogs = Blog::latest()->paginate(5);
+    $blogs = Blog::latest()->paginate(2);
     $headers = Header::all();
+    $links = SocialLink::all();
 
-    return view('dashboard.dashboard', compact('blogs','headers'));
+    return view('dashboard.dashboard', compact('blogs','headers','links'));
 }
 
 
@@ -41,15 +43,6 @@ class BlogController extends Controller
         $headers = Header::all();
         return view('content.content', compact('blog', 'headers'));
     }
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    // public function create()
-    // {
-    //     return view('blogs.create');
-    // }
 
     /**
      * Store a newly created resource in storage.
@@ -113,6 +106,11 @@ class BlogController extends Controller
         return view('db_includes.header_view', compact('headers'));
     }
 
+    public function socialview($id){
+        $sociallinks = SocialLink::find($id);
+        return view('db_includes.social_icons_view', compact('sociallinks'));
+    }
+
     public function edit($id)
     {
         $blog = Blog::find($id);
@@ -124,17 +122,14 @@ class BlogController extends Controller
         $headers = Header::find($id);
         return view('db_includes.edit_header', compact('headers'));
     }
-    /**
-     * Show the form for editing the specified resource.
-     */
-    // public function edit(Blog $blog)
-    // {
-    //     return view('blogs.edit', compact('blog'));
-    // }
 
-    /**
-     * Update the specified resource in storage.
-     */
+     public function socialedit($id)
+    {
+        $socialLink = SocialLink::find($id);
+        return view('db_includes.social_icons_edit', compact('socialLink'));
+    }
+
+
     public function update(Request $request, $id)
     {
         $blog = Blog::findOrFail($id);
@@ -207,6 +202,22 @@ class BlogController extends Controller
     return redirect()->route('dashboard')->with('success', 'Header Item Updated!');
 }
 
+
+public function socialupdate(Request $request, $id)
+{
+    $request->validate([
+        'platform_name' => 'required|string|max:255',
+        'icon_class' => 'required|string|max:255',
+        'url' => 'required|url',
+    ]);
+
+    $socialLink = SocialLink::findOrFail($id);
+    $socialLink->update($request->all());
+
+    return redirect()->route('dashboard')->with('success', 'Social link updated successfully.');
+}
+
+
     /**
      * Remove the specified resource from storage.
      */
@@ -223,4 +234,13 @@ class BlogController extends Controller
         $headers->delete();
         return redirect()->route('dashboard')->with('success', 'Header Deleted Successfully!');
     }
+
+        public function socialdestroy($id)
+    {
+        $socialLink=SocialLink::findOrFail($id);
+        $socialLink->delete();
+        return redirect()->route('dashboard')->with('success', 'Deleted successfully.');
+    }
+
+
 }

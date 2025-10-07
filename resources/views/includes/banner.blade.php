@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ asset('css/banner.css') }}">
 
-<section class="banner-section container-lg py-3">
+<section class="banner-section container-lg pb-3">
 
     <div class="row align-items-center gx-4">
 

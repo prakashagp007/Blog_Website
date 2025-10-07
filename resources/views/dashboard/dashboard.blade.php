@@ -281,6 +281,8 @@
 
                 @include('db_includes.header_table')
 
+                @include('db_includes.social_icons_table')
+
             </div>
 
             {{-- Blog Content --}}

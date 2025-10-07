@@ -35,6 +35,14 @@ Route::get('/dashboard', [BlogController::class, 'table'])
      Route::put('/header/{id}/update', [BlogController::class, 'headerupdate'])->name('header.update');
     Route::delete('/header/{id}/destroy', [BlogController::class, 'headerdestroy'])->name('header.delete');
 
+    // social icons
+
+        Route::get('/social/{id}/edit', [BlogController::class, 'socialedit'])->name('social.edit');
+        Route::put('/social/{id}/update', [BlogController::class, 'socialupdate'])->name('social.update');
+
+        Route::get('/social/{id}/view',[BlogController::class, 'socialview'])->name('social.view');
+        Route::delete('/social/{id}/destroy', [BlogController::class, 'socialdestroy'])->name('social.destroy');
+
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 

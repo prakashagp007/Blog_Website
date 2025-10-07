@@ -2,7 +2,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Aclonica&family=Emblema+One&family=IM+Fell+Great+Primer+SC&family=Keania+One&family=Lemonada:wght@300..700&family=Redressed&family=Wallpoet&family=Yatra+One&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Aclonica&family=Emblema+One&family=IM+Fell+Great+Primer+SC&family=Keania+One&family=Lemonada:wght@300..700&family=Redressed&family=Wallpoet&family=Yatra+One&display=swap"
+    rel="stylesheet">
 
 <header class="header_one">
 
@@ -19,7 +21,7 @@
         </ul>
     </nav>
 
-        {{-- Logo --}}
+    {{-- Logo --}}
     @if ($headers->first() && $headers->first()->logo)
         <div class="logo">
             <img src="{{ asset('storage/' . $headers->first()->logo) }}" alt="Logo">
@@ -37,7 +39,7 @@
         @endif
 
 
-        <div class="search-bar gap-1" >
+        <div class="search-bar gap-1">
             <input type="text" class="form-control inp-header" placeholder="Search...">
             <button class="search-icon"><i class="fa fa-search"></i></button>
         </div>
@@ -59,21 +61,23 @@
             <a href="{{ url($headers->first()->button_link) }}" class="header-btn">
                 {{ $headers->first()->button_name }}
             </a>
-
         @endif
     </div>
 </header>
 
-<script defer>
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
 
-    if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', function() {
-            mobileMenu.classList.toggle('active');
-            this.classList.toggle('open');
-        });
-    }
-});
+@include('includes.sliding_bar')
+
+<script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                this.classList.toggle('open');
+            });
+        }
+    });
 </script>
