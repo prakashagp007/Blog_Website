@@ -3,13 +3,15 @@
 
 <style>
     .sliding-blog {
-        padding: 5px 0px;
+        padding: 0px 0px;
+        background: #7b5c45;
+        border-radius: 0px 0px 6px 6px;
     }
 
     .blog-slider {
-        background: #fff;
+        background: #7b5c45;
         border-radius: 8px;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        /* box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); */
         padding: 10px 20px;
         max-height: 180px;
         overflow: hidden;
@@ -19,7 +21,7 @@
         font-weight: 600;
         font-size: 12px;
         margin-bottom: 5px;
-        color: #222;
+        color: #ffffff;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -27,7 +29,7 @@
 
     .blog-slide-item p {
         font-size: 11px;
-        color: #555;
+        color: #ffffff;
         margin: 0;
         white-space: nowrap;
         overflow: hidden;
@@ -42,19 +44,18 @@
 
     .social-panel {
         background: white;
-        /* height: 17vh; */
-        border-radius: 8px;
+        border-radius: 4px;
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-        padding: 10px 0px;
+        padding: 6px 0px;
     }
 
     .social-icons a {
         text-decoration: none;
         color: #7b5c45;
         border: 1.3px solid #7b5c45;
-        /* background: linear-gradient(90deg, rgb(123, 93, 68) 0%, rgb(203, 168, 142) 100%); */
-        padding: 8px;
+        padding: 5px;
         border-radius: 4px;
+        font-size: 14px;
     }
 
     .carousel-control-prev,

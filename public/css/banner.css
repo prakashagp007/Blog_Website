@@ -5,7 +5,10 @@
     overflow: hidden;
 }
 
-/* --- Carousel Image --- */
+.blog-section{
+    margin-top: 10px;
+
+}
 .hero-slide {
     position: relative;
     border-radius: 8px;

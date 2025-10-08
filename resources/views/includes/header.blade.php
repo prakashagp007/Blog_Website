@@ -6,7 +6,7 @@
     href="https://fonts.googleapis.com/css2?family=Aclonica&family=Emblema+One&family=IM+Fell+Great+Primer+SC&family=Keania+One&family=Lemonada:wght@300..700&family=Redressed&family=Wallpoet&family=Yatra+One&display=swap"
     rel="stylesheet">
 
-<header class="header_one">
+<header class="header_one container-lg sticky-top">
 
 
 

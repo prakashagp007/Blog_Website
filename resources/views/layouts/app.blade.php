@@ -26,16 +26,28 @@
     body {
         background-color: #e0cdbf33;
     }
+    .breadrcrumb1{
+        background: #7b5c45;
+        color: white;
+        padding-top: 10px ;
+        padding-bottom: 10px ;
+        margin: 20px auto;
+    }
 </style>
 
 <body>
 
     <main>
-        {{-- includes inject --}}
-
-        {{-- page-specific content --}}
         @yield('content')
     </main>
+
+
+    {{-- g translate --}}
+   <div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"languages":["en","ta","ml","te","kn","hi"],"wrapper_selector":".gtranslate_wrapper"}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+   {{-- g translate --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
