@@ -1,0 +1,12 @@
+.foot_logo {
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: #7a5d44;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px;
+}

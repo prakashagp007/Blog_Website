@@ -16,20 +16,26 @@ class BlogController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+public function index()
 {
     $blogs = Blog::latest()->get();
     $headers = Header::all();
-    $latestblogs = Blog::latest()->take(4)->get();
     $socialLinks = SocialLink::all();
-    return view('home.home', compact('blogs', 'headers','latestblogs','socialLinks'));
+
+    // Reuse data efficiently
+    $latestblogs = $blogs->take(4);
+    $categories = $blogs->pluck('blog_cat')->unique();
+    $tab = $blogs;
+
+    return view('home.home', compact('blogs', 'headers', 'latestblogs', 'socialLinks', 'categories', 'tab'));
 }
+
 
 // dashboard table for alteration
 
     public function table()
 {
-    $blogs = Blog::latest()->paginate(2);
+    $blogs = Blog::latest()->paginate(5);
     $headers = Header::all();
     $links = SocialLink::all();
 

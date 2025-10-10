@@ -7,8 +7,8 @@
 
     <section class="blog-section">
 
-        @include('includes.banner')
 
+        @include('includes.banner')
 
 
         <div class="container-lg position-relative">
@@ -29,9 +29,9 @@
                                         alt="{{ $blog->blog_title }}">
 
                                     <div class="card-body crd_bdy_ps1">
-                                        <h5 class="card-title crd_ttl_ps1">{{ $blog->blog_title }}</h5>
+                                        <h5 class=" crd_ttl_ps1">{{ $blog->blog_title }}</h5>
                                         <p class="abs">{{ $blog->blog_cat }}</p>
-                                        <p class="card-text crd_txt_ps1">{{ Str::limit($blog->blog_description, 100) }}
+                                        <p class="card-text crd_txt_ps1">{{ $blog->blog_description }}
                                         </p>
                                         <p class="text-muted crd_date_ps1">
                                             Published on {{ $blog->created_at->format('d M, Y') }}

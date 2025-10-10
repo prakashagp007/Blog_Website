@@ -3,14 +3,14 @@
 }
 
 .btn-view i {
-    background: rgba(21, 215, 21, 0.146);
+    /* background: rgba(21, 215, 21, 0.146); */
     color: green;
     text-align: center;
     padding: 7px;
     border-radius: 3px;
 }
 .btn-edit i {
-    background: rgba(205, 215, 21, 0.146);
+    /* background: rgba(205, 215, 21, 0.146); */
     color: gold;
     text-align: center;
     padding: 7px;
@@ -18,7 +18,8 @@
 }
 
 .btn-delete {
-    background: rgba(195, 75, 75, 0.146);
+    /* background: rgba(195, 75, 75, 0.146); */
+    background: none;
     color: rgb(255, 0, 0);
     text-align: center;
     padding: 7px;

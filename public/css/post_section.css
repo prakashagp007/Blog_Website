@@ -1,7 +1,7 @@
 .blog-heading {
     font-size: 30px;
     text-align: start;
-    margin: 30px 0px;
+    margin: 30px 0px 0px 0px;
     font-family: "Aclonica", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -21,6 +21,8 @@
     padding: 1px 10px;
     margin: 0px;
     border-radius: 5px;
+    font-family: "merienda", cursive;
+    font-size: 14px;
 }
 
 
@@ -30,10 +32,10 @@
 .blog-heading {
     text-align: start;
     font-weight: 700;
-    font-size: 2rem;
-    color: #2b2b2b;
-    margin-bottom: 40px;
+    font-size: 25px;
+    color: #7a5d44;
     position: relative;
+    margin-left: 1%;
 }
 
 .blog-heading::after {
@@ -42,7 +44,7 @@
     height: 3px;
     background: #007bff;
     display: block;
-    margin: 10px 0;
+    margin: 5px 0;
     border-radius: 10px;
 }
 
@@ -78,9 +80,9 @@
 }
 
 .crd_ttl_ps1 {
-    font-size: 1.2rem;
+    font-size: 23px;
     font-weight: 600;
-    color: #212529;
+    color: #007bff;
     margin-bottom: 10px;
     transition: color 0.3s ease;
     white-space: nowrap;
@@ -88,22 +90,36 @@
     text-overflow: ellipsis;
     display: block;
     max-width: 100%;
+    font-family: "Redressed", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.crd_ps1:hover .crd_ttl_ps1 {
-    color: #007bff;
-}
 
 .crd_txt_ps1 {
     color: #6c757d;
-    font-size: 0.95rem;
+    font-size: 12px;
     min-height: 50px;
+    font-family: comfortaa;
+    /* border-bottom: 1px solid #8080806e; */
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 0px;
+    /* padding-bottom: 15px; */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .crd_date_ps1 {
     font-size: 0.85rem;
     color: #adb5bd;
-    margin-top: 10px;
+    margin: 0px;
+    margin-top: 8px;
+    padding-top:5px ;
+    border-top: 1px solid rgba(128, 128, 128, 0.354);
 }
 
 /* --- Responsive Adjustments --- */
@@ -113,11 +129,11 @@
     }
 }
 
-/* Carousel top-right navs */
+
 .owl-nav-top-right {
     position: absolute;
-    top: 0%;
-    right: 2%;
+    top: 3%;
+    right: 3%;
     z-index: 10;
 }
 
@@ -127,8 +143,7 @@
     color: #fff;
     border-radius: 5px;
     font-size: 28px;
-    width: 28px;
-    height: 28px;
+    padding: 3px 10px 10px 10px;
     line-height: 14px;
     text-align: center;
     margin-left: 6px;
