@@ -30,18 +30,20 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: top;
-
-    }
-
-    .log-img {
-        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        box-sizing: border-box;
     }
 
     .crd {
         background-color: rgba(139, 224, 245, 0.3);
         backdrop-filter: blur(4px);
         box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
-        margin: 20% 0%;
+        padding: 30px 20px;
+        width: 100%;
+        border-radius: 10px;
     }
 
     .inp {
@@ -51,6 +53,9 @@
         border-bottom: 1px solid #ecf7fc;
         border-radius: 0px;
         color: #ecf7fc;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     label {
@@ -61,26 +66,21 @@
         font-size: 18px;
     }
 
-    /** Text Gradient Example */
     .txt {
         color: #ecf7fc;
         font-size: 35px;
         font-weight: bold;
         line-height: 50px;
         font-family: "Merienda", cursive;
-        font-optical-sizing: auto;
-        font-weight: <weight>;
-        font-style: normal;
         margin: 10px 0px 20px 0px;
+        text-align: center;
     }
 
     .inp:focus {
         background-color: transparent;
         box-shadow: none;
-        border: 1.6px solid #002D4E;
-        border: none;
-        border-bottom: 1px solid #ecf7fc;
-        border-radius: 0px;
+        border-bottom: 2px solid #002D4E;
+        outline: none;
     }
 
     .inp::placeholder {
@@ -91,31 +91,13 @@
     .log-btn {
         background: linear-gradient(90deg, rgba(160, 7, 27, 1) 0%, rgba(0, 65, 115, 1) 54%, rgba(0, 164, 208, 1) 100%);
         color: white;
-        padding: 5px 27px;
+        padding: 10px 30px;
         border: none;
         border-radius: 5px;
         font-family: "Merienda", cursive;
-        font-optical-sizing: auto;
-        font-weight: <weight>;
         font-style: normal;
         transition: 0.3s;
-    }
-
-    .error {
-        float: right;
-        padding: 10px 20px;
-        position: absolute;
-        top: 45%;
-        right: 2%;
-        background-color: rgba(249, 249, 249, 0.31);
-        border-radius: 5px;
-        box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
-    }
-
-    .error {
-        font-family: "Wallpoet", sans-serif;
-        font-weight: 400;
-        font-style: normal;
+        width: 100%;
     }
 
     .log-btn:hover .ico {
@@ -135,15 +117,96 @@
             transform: translateX(0px);
         }
     }
+
+    .error {
+        font-family: "Wallpoet", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        padding: 10px 20px;
+        position: absolute;
+        top: 10%;
+        right: 5%;
+        background-color: rgba(249, 249, 249, 0.31);
+        border-radius: 5px;
+        box-shadow: rgba(255, 255, 255, 0.2) 0px 7px 29px 0px;
+        max-width: 90%;
+    }
+
+    /* ================= Mobile Responsiveness ================= */
+    @media (max-width: 767px) {
+        .crd {
+            padding: 20px 15px;
+            margin: 10% 0;
+        }
+
+        .txt {
+            font-size: 28px;
+            line-height: 40px;
+        }
+
+        label {
+            font-size: 16px;
+        }
+
+        .inp {
+            font-size: 14px;
+            padding: 8px;
+        }
+
+        .log-btn {
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .error {
+            top: 5%;
+            right: 2%;
+            font-size: 14px;
+        }
+
+        .error {
+            max-width: 40%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .txt {
+            font-size: 24px;
+            line-height: 35px;
+        }
+
+        .crd {
+            padding: 15px 10px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        .error {
+            max-width: 35%;
+        }
+
+        .inp {
+            font-size: 13px;
+            padding: 6px;
+        }
+
+        .log-btn {
+            font-size: 14px;
+            padding: 8px;
+        }
+    }
 </style>
+
 
 <body>
 
     <div class="bg-log">
 
-        <div class="container ">
+        <div class="container-lg">
             <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-6 col-sm-12 col-12">
+                <div class="col-lg-5 col-md-10 col-sm-12 col-12">
                     <div class="card crd p-4">
 
                         <h3 class="text-center txt"><i class="fa-solid fa-user-shield"></i> Login Form</h3>
