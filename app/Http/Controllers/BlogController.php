@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 // BlogController.php
 use App\Models\Header;
 use App\Models\SocialLink;
+use Illuminate\Support\Str;
 
 
 
@@ -248,5 +249,19 @@ public function socialupdate(Request $request, $id)
         return redirect()->route('dashboard')->with('success', 'Deleted successfully.');
     }
 
+
+
+public function showByCategory($category_slug)
+{
+    // Convert slug back to readable category
+    $category_name = str_replace('-', ' ', $category_slug);
+
+    // Fetch blogs with that category
+    $blogs = Blog::where('blog_cat', $category_name)->get();
+
+    $headers = Header::all();
+
+    return view('category.category', compact('blogs', 'category_name','headers'));
+}
 
 }

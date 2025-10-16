@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 
+
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\SocialLinkController;
 
@@ -61,10 +62,14 @@ Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 // header routes
 
-// Route::get('/', [HeaderController::class, 'index']);
 Route::post('/admin/header/store', [HeaderController::class, 'store'])->name('header.store');
 
 // social media store
 Route::post('/admin/socialmedia/store', [SocialLinkController::class, 'store'])->name('sociallinks.store');
 
-// Route::get('/dashboard/table', [BlogController::class, 'table'])->name('blog.table');
+
+
+
+// Show blogs by category
+
+Route::get('/category/{category}', [BlogController::class, 'showByCategory'])->name('category.show');
