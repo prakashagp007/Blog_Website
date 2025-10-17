@@ -259,9 +259,13 @@ public function showByCategory($category_slug)
     // Fetch blogs with that category
     $blogs = Blog::where('blog_cat', $category_name)->get();
 
-    $headers = Header::all();
 
-    return view('category.category', compact('blogs', 'category_name','headers'));
+    $headers = Header::all();
+    $latblog = Blog::latest()->get();
+    $latestblogs = $latblog->take(5);
+    $categories = $latblog;
+
+    return view('category.category', compact('blogs', 'category_name','headers','latestblogs','categories'));
 }
 
 }

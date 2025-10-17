@@ -6,7 +6,7 @@
 <style>
     .tab-section {
         max-width: 1200px;
-        margin: 60px auto;
+        margin: 60px auto 0px auto;
     }
 
     .tab-header {
