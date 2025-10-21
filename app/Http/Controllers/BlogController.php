@@ -48,7 +48,10 @@ public function index()
     {
         $blog = Blog::findOrFail($id);  // fetch blog by ID or 404
         $headers = Header::all();
-        return view('content.content', compact('blog', 'headers'));
+        $latblog = Blog::latest()->get();
+        $latestblogs = $latblog->take(5);
+        $categories = $latblog;
+        return view('content.content', compact('blog', 'headers','latestblogs', 'categories'));
     }
 
     /**
@@ -253,12 +256,11 @@ public function socialupdate(Request $request, $id)
 
 public function showByCategory($category_slug)
 {
-    // Convert slug back to readable category
+
     $category_name = str_replace('-', ' ', $category_slug);
 
-    // Fetch blogs with that category
-    $blogs = Blog::where('blog_cat', $category_name)->get();
 
+    $blogs = Blog::where('blog_cat', $category_name)->get();
 
     $headers = Header::all();
     $latblog = Blog::latest()->get();

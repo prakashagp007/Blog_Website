@@ -73,3 +73,5 @@ Route::post('/admin/socialmedia/store', [SocialLinkController::class, 'store'])-
 // Show blogs by category
 
 Route::get('/category/{category}', [BlogController::class, 'showByCategory'])->name('category.show');
+
+

@@ -10,6 +10,28 @@
 
         <div class="left-section">
 
+            <h5>Trending Blogs</h5>
+            <ul>
+                @if ($latestblogs && $latestblogs)
+                    {{-- <h4 class="trend-heading mb-3">Trending Now</h4> --}}
+                    @foreach ($latestblogs as $blog)
+                        <a href="{{ route('blog.show', $blog->id) }}" class="text-decoration-none text-dark">
+                            <div class="trend-card d-flex align-items-center mb-3 shadow-sm rounded-2">
+                                <img class="trend-img"
+                                    src="{{ $blog->blog_thumbnail
+                                        ? asset('uploads/thumbnails/' . $blog->blog_thumbnail)
+                                        : asset('uploads/thumbnails/default.jpg') }}"
+                                    alt="{{ $blog->blog_title }}">
+                                <div class="trend-body ps-3">
+                                    <h6 class="trend-title">{{ $blog->blog_title }}</h6>
+                                    <p class="trend-date m-0">{{ $blog->created_at->format('d M, Y') }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    @endforeach
+                @endif
+            </ul>
+
 
         </div>
 
@@ -63,7 +85,7 @@
                 </div>
 
                 <div class="moments-section">
-                    <h3 class="moments-title"><i class="fa-solid fa-camera-retro me-2"></i>Moments</h3>
+                    {{-- <h3 class="moments-title"><i class="fa-solid fa-camera-retro me-2"></i>Moments</h3> --}}
                     <div class="fav-imgs">
                         @foreach (['blog_favimg', 'blog_favimg1', 'blog_favimg2', 'blog_favimg3'] as $key)
                             @if ($blog->$key)
@@ -85,14 +107,28 @@
                     </div>
                 </div>
 
-                <a href="{{ route('home') }}" class="back-btn mt-5">
+                {{-- <a href="{{ url()->previous() }}" class="back-btn mt-5">
                     <i class="fas fa-arrow-left"></i> Back to Home
-                </a>
+                </a> --}}
             </div>
         </div>
 
 
         <div class="right-section">
+
+            
+            <h5>Categories</h5>
+            <ul>
+                @php
+                    $uniqueCategories = $categories->unique('blog_cat');
+                @endphp
+
+                @foreach ($uniqueCategories as $cat)
+                    <li><a href="{{ route('category.show', $cat->blog_cat) }}">{{ $cat->blog_cat }}</a></li>
+                @endforeach
+
+
+            </ul>
 
         </div>
     </div>
