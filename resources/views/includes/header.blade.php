@@ -39,9 +39,8 @@
         @endif
 
 
-        <div class="search-bar gap-1">
-            <input type="text" class="form-control inp-header" placeholder="Search...">
-            <button class="search-icon"><i class="fa fa-search"></i></button>
+        <div>
+            @include('includes.social_media')
         </div>
 
 

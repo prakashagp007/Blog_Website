@@ -1,8 +1,4 @@
 <style>
-    .category-section {
-        background: #F8F5F2;
-        background: linear-gradient(180deg, rgba(248, 245, 242, 1) 0%, rgba(237, 207, 177, 0.33) 50%, rgba(248, 245, 242, 0.25) 100%);
-    }
 
     .category-card {
         background: #fff;
@@ -10,7 +6,8 @@
         display: flex;
         align-items: center;
         justify-content: start;
-        column-gap: 20px
+        column-gap: 10px;
+        width:fit-content;
             /* border: 1px solid #eee; */
     }
 
@@ -22,7 +19,7 @@
     }
 
     .category-card .icon-wrapper {
-        font-size: 35px;
+        font-size: 25px;
         color: #795c4478;
         transition: color 0.3s;
     }
@@ -41,7 +38,7 @@
     }
 
     .category-name {
-        font-size: 20px;
+        font-size: 16px;
         letter-spacing: 0.5px;
         color: #795c44;
         font-family: 'merienda', cursive;
@@ -51,7 +48,7 @@
 <section class="category-section pb-5">
     <div class="container">
         <h2 class="blog-heading mb-5 "><span>Explore Categories</span> </h2>
-        <div class="row justify-content-start">
+        <div class="d-flex justify-content-start gap-3">
             @php
                 $unique_categories = $blogs->pluck('blog_cat')->unique();
             @endphp
@@ -60,7 +57,7 @@
                 @php
                     $category_slug = \Illuminate\Support\Str::slug($category);
                 @endphp
-                <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+                <div class="mb-4">
                     <a href="{{ route('category.show', $category_slug) }}" class="text-decoration-none">
                         <div class="category-card shadow-sm text-center p-3 rounded-4">
                             <div class="icon-wrapper">

@@ -15,7 +15,10 @@
 }
 
 .trend-card-top {
-    background-color: #f6f3f0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgb(189, 189, 189);
+    padding-bottom: 10px;
 }
 
 
@@ -36,7 +39,7 @@
 }
 
 .trend-img-grid {
-    height: 175px;
+    height: 190px;
     object-fit: cover;
 }
 
@@ -89,4 +92,10 @@
     height: 100%;
     background-color: #f6f3f0;
     transition: 0.3s;
+}
+.trend-img1 {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
 }

@@ -1,83 +1,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<style>
-    .sliding-blog {
-        padding: 0px 0px;
-        background: #7b5c45;
-        border-radius: 0px 0px 6px 6px;
-    }
-
-    .blog-slider {
-        background: #7b5c45;
-        border-radius: 8px;
-        /* box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); */
-        padding: 10px 20px;
-        max-height: 180px;
-        overflow: hidden;
-    }
-
-    .blog-slide-item h5 {
-        font-weight: 600;
-        font-size: 12px;
-        margin-bottom: 5px;
-        color: #ffffff;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .blog-slide-item p {
-        font-size: 11px;
-        color: #ffffff;
-        margin: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .social-icons {
-        column-gap: 10px;
-        display: flex;
-        justify-content: space-around;
-    }
-
-    .social-panel {
-        background: white;
-        border-radius: 4px;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-        padding: 6px 0px;
-    }
-
-    .social-icons a {
-        text-decoration: none;
-        color: #7b5c45;
-        border: 1.3px solid #7b5c45;
-        padding: 5px;
-        border-radius: 4px;
-        font-size: 14px;
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: 5%;
-    }
-
-    .carousel-control-prev .icn,
-    .carousel-control-next .icn {
-        font-size: 20px;
-        color: #fff;
-        background: #7b5e48;
-        padding: 3px 0px;
-        border-radius: 3px;
-    }
-
-    @media (max-width: 768px) {
-        .blog-slider {
-            max-height: 250px;
-            padding: 15px;
-        }
-    }
-</style>
+<link rel="stylesheet" href="{{ asset('css/top_sliding.css') }}">
 
 <div class="sliding-blog container-lg">
     <div class="row align-items-center" style="--bs-gutter-x: 10px;">
@@ -113,9 +36,12 @@
 
         <!-- Right Social Panel -->
         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-3 mt-lg-0">
-            <div class="social-panel">
-                @include('includes.social_media')
+
+            <div class="search-bar gap-1">
+                <input type="text" class="form-control inp-header" placeholder="Search...">
+                <button class="search-icon"><i class="fa fa-search"></i></button>
             </div>
+
         </div>
     </div>
 </div>

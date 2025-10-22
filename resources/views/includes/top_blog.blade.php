@@ -11,8 +11,8 @@
                         @foreach ($latestblogs as $blog)
                             <a href="{{ route('blog.show', $blog->id) }}" class="text-decoration-none text-dark">
                                 <div
-                                    class="trend-card trend-card-top d-flex align-items-center mb-3 shadow-sm rounded-4">
-                                    <img class="trend-img"
+                                    class="trend-card-top d-flex align-items-center mb-3">
+                                    <img class="trend-img1"
                                         src="{{ $blog->blog_thumbnail
                                             ? asset('uploads/thumbnails/' . $blog->blog_thumbnail)
                                             : asset('uploads/thumbnails/default.jpg') }}"

@@ -28,8 +28,12 @@
 
 <body>
 
+
     <main>
         @yield('content')
+
+        @include('includes.interactive_cursor')
+        @include('includes.percentage_scroll')
     </main>
 
 

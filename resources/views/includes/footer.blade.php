@@ -69,11 +69,32 @@
 
         <div class="col-lg-6">
             <h3 class="blog-heading text-light slinks">Categories</h3>
-            <ul class="foot-cat">
+            {{-- <ul class="foot-cat">
                 @foreach ($blogs->unique('blog_cat') as $blog)
                     <li class="foot-links"><i class="fa-solid fa-layer-group"></i> {{ $blog->blog_cat }}</li>
                 @endforeach
-            </ul>
+            </ul> --}}
+
+            {{--  --}}
+
+            <div class="d-flex justify-content-start flex-wrap gap-3">
+                @php
+                    $unique_categories = $blogs->pluck('blog_cat')->unique();
+                @endphp
+
+                @foreach ($unique_categories as $category)
+                    @php
+                        $category_slug = \Illuminate\Support\Str::slug($category);
+                    @endphp
+                    <div >
+                        <a href="{{ route('category.show', $category_slug) }}" class="text-decoration-none">
+                            <li style="list-style: none" class="foot-links"><i class="fa-solid fa-layer-group"></i> {{ $category }}</li>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+
+            {{--  --}}
         </div>
 
 
