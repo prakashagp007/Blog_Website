@@ -7,6 +7,7 @@
 @include('includes.header')
 
 @section('content')
+    @include('includes.sliding_bar')
     @include('includes.post_section1')
     @include('includes.tab')
     @include('includes.top_blog')

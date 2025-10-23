@@ -115,9 +115,16 @@
 
 
         <div class="right-section">
+            <div class="search-bar ">
+                <form action="{{ route('blog.search') }}" method="GET" class="d-flex gap-2 m-0 p-0">
+                    <input type="text" name="query" class="form-control inp-header" placeholder="Search..." required>
+                    <button type="submit" class="search-icon">
+                        <i class="fa fa-search text-light"></i>
+                    </button>
+                </form>
+            </div>
 
-            
-            <h5>Categories</h5>
+            <h5 class="mt-4">Categories</h5>
             <ul>
                 @php
                     $uniqueCategories = $categories->unique('blog_cat');

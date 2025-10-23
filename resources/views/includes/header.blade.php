@@ -65,7 +65,7 @@
 </header>
 
 
-@include('includes.sliding_bar')
+
 
 <script defer>
     document.addEventListener('DOMContentLoaded', function() {

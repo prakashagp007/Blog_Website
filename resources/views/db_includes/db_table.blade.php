@@ -96,6 +96,8 @@
                 </td>
             </tr>
         @endforeach
+
+
     </tbody>
 </table>
-
+{{ $blogs->links('pagination::bootstrap-5') }}

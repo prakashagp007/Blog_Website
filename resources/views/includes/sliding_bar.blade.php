@@ -37,10 +37,16 @@
         <!-- Right Social Panel -->
         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-3 mt-lg-0">
 
-            <div class="search-bar gap-1">
-                <input type="text" class="form-control inp-header" placeholder="Search...">
-                <button class="search-icon"><i class="fa fa-search"></i></button>
+            <div class="search-bar ">
+                <form action="{{ route('blog.search') }}" method="GET" class="d-flex gap-2 m-0 p-0">
+                    <input type="text" name="query" class="form-control inp-header" placeholder="Search..."
+                        required>
+                    <button type="submit" class="search-icon">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
             </div>
+
 
         </div>
     </div>

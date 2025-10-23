@@ -69,13 +69,6 @@
 
         <div class="col-lg-6">
             <h3 class="blog-heading text-light slinks">Categories</h3>
-            {{-- <ul class="foot-cat">
-                @foreach ($blogs->unique('blog_cat') as $blog)
-                    <li class="foot-links"><i class="fa-solid fa-layer-group"></i> {{ $blog->blog_cat }}</li>
-                @endforeach
-            </ul> --}}
-
-            {{--  --}}
 
             <div class="d-flex justify-content-start flex-wrap gap-3">
                 @php

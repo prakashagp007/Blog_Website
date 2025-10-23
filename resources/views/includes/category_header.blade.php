@@ -39,9 +39,12 @@
         @endif
 
 
-        <div class="search-bar gap-1">
-            <input type="text" class="form-control inp-header" placeholder="Search...">
-            <button class="search-icon"><i class="fa fa-search"></i></button>
+        <div class="social-icons">
+            @foreach ($socialLinks as $link)
+                <a href="{{ $link->url }}" target="_blank">
+                    <i class="{{ $link->icon_class }}"></i>
+                </a>
+            @endforeach
         </div>
 
 

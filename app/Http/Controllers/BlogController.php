@@ -36,7 +36,7 @@ public function index()
 
     public function table()
 {
-    $blogs = Blog::latest()->paginate(5);
+    $blogs = Blog::latest()->paginate(3);
     $headers = Header::all();
     $links = SocialLink::all();
 
@@ -51,7 +51,8 @@ public function index()
         $latblog = Blog::latest()->get();
         $latestblogs = $latblog->take(5);
         $categories = $latblog;
-        return view('content.content', compact('blog', 'headers','latestblogs', 'categories'));
+        $socialLinks =SocialLink::all();
+        return view('content.content', compact('blog', 'headers','latestblogs', 'categories', 'socialLinks'));
     }
 
     /**
@@ -266,8 +267,26 @@ public function showByCategory($category_slug)
     $latblog = Blog::latest()->get();
     $latestblogs = $latblog->take(5);
     $categories = $latblog;
+    $socialLinks =SocialLink::all();
 
-    return view('category.category', compact('blogs', 'category_name','headers','latestblogs','categories'));
+    return view('category.category', compact('blogs', 'category_name','headers','latestblogs','categories','socialLinks'));
 }
+
+public function search(Request $request)
+{
+    $query = $request->input('query');
+
+    $blogs = Blog::where('blog_title', 'like', "%{$query}%")
+        ->orWhere('blog_cat', 'like', "%{$query}%")
+        ->latest()
+        ->get();
+
+    $headers = Header::all();
+    $allblogs = Blog::all();
+    $socialLinks = SocialLink::all();
+
+    return view('search.search', compact('blogs', 'query', 'headers', 'allblogs', 'socialLinks'));
+}
+
 
 }
