@@ -22,12 +22,17 @@
                                     <div class="caption-box text-center">
                                         <h2 class="caption-title">{{ $blog->blog_title }}</h2>
                                         <p class="caption-text">{{ Str::limit($blog->blog_description, 100) }}</p>
-                                        {{-- <p class="caption-date">
-                                            <i class="fa-regular fa-calendar"></i>
-                                            {{ $blog->created_at->format('d M, Y') }}
-                                        </p> --}}
-                                        <a href="{{ route('blog.show', $blog->id) }}" class="read-btn">Read More <i
+
+                                        <div class="d-flex align-items-center justify-content-center gap-3 mb-3">
+
+
+                                <p class="trend-date m-0">{{ $blog->created_at->format('d M, Y') }}</p>
+                                <p class="trend-date m-0"><i class="fa-solid fa-location-dot"></i> {{ $blog->blog_location }}</p>
+                                <p class="trend-date m-0"><i class="fa fa-eye"></i> {{ $blog->views }} views</p>
+                                <a href="{{ route('blog.show', $blog->id) }}" class="read-btn">Read More <i
                                                 class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +66,11 @@
                                 alt="{{ $blog->blog_title }}">
                             <div class="trend-body ps-3">
                                 <h6 class="trend-title">{{ $blog->blog_title }}</h6>
+                                <div class="d-flex gap-4 pe-3" >
                                 <p class="trend-date m-0">{{ $blog->created_at->format('d M, Y') }}</p>
+                                <p class="trend-date m-0"><i class="fa fa-eye"></i> {{ $blog->views }} views</p>
+                                </div>
+
                             </div>
                         </div>
                     </a>

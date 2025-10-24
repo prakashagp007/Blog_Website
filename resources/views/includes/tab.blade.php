@@ -218,9 +218,10 @@
                                     <div class="tab-card-body">
                                         <h5>{{ $blog->blog_title }}</h5>
                                         <p>{{ $blog->blog_description }}</p>
-                                        <div class="tab-blog-footer">
+                                        <div class="tab-blog-footer d-flex gap-3">
                                             <span><i class="fa-regular fa-calendar"></i>
                                                 {{ $blog->created_at->format('d M, Y') }}</span>
+                                              <span><i class="fa fa-eye"></i> {{ $blog->views }} views</span>
                                         </div>
                                     </div>
                                 </div>

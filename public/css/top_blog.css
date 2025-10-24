@@ -39,7 +39,7 @@
 }
 
 .trend-img-grid {
-    height: 190px;
+    height: 246px;
     object-fit: cover;
 }
 
@@ -47,6 +47,7 @@
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 0.3rem;
+    -webkit-line-clamp: 1 !important;
 }
 
 .trend-body p {
@@ -81,8 +82,8 @@
     top: 51%;
     height: 100%;
     background-color: #f6f3f0;
-    transition: 0.3s;
-    transform: translateY(90px);
+    transition: 0.5s;
+    transform: translateY(120px);
 }
 
 .trend-card-grid1:hover .trend-body1 {
@@ -93,7 +94,9 @@
     background-color: #f6f3f0;
     transition: 0.3s;
 }
-
+.trend-card-grid1:hover .trend-img-grid{
+    filter: brightness(50%);
+}
 .trend-img1 {
     width: 80px;
     height: 80px;

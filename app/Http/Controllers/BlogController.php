@@ -37,6 +37,7 @@ public function index()
     public function table()
 {
     $blogs = Blog::latest()->paginate(3);
+    $blog->increment('views');
     $headers = Header::all();
     $links = SocialLink::all();
 
@@ -52,6 +53,7 @@ public function index()
         $latestblogs = $latblog->take(5);
         $categories = $latblog;
         $socialLinks =SocialLink::all();
+        $blog->increment('views');
         return view('content.content', compact('blog', 'headers','latestblogs', 'categories', 'socialLinks'));
     }
 

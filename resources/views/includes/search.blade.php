@@ -22,9 +22,13 @@
 
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $blog->blog_title }}</h5>
-                                    <div class="blog-meta">
-                                        <i class="fa fa-layer-group"></i> {{ $blog->blog_cat }} <br>
-                                        <i class="fa fa-map-marker-alt"></i> {{ $blog->blog_location }}
+                                    <div class="blog-meta ">
+                                        <span><i class="fa fa-layer-group"></i> {{ $blog->blog_cat }}</span>
+
+                                        <span><i class="fa fa-map-marker-alt"></i> {{ $blog->blog_location }}</span>
+
+                                        <span><i class="fa fa-eye"></i> {{ $blog->views }} views</span>
+
                                     </div>
                                     <p class="card-text">{{ Str::limit($blog->blog_description, 90) }}</p>
                                     <a href="{{ route('blog.show', $blog->id) }}" class="btn btn-read">Read More</a>

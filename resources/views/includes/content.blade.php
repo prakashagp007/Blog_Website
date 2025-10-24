@@ -14,17 +14,17 @@
             <ul>
                 @if ($latestblogs && $latestblogs)
                     {{-- <h4 class="trend-heading mb-3">Trending Now</h4> --}}
-                    @foreach ($latestblogs as $blog)
-                        <a href="{{ route('blog.show', $blog->id) }}" class="text-decoration-none text-dark">
+                    @foreach ($latestblogs as $latest)
+                        <a href="{{ route('blog.show', $latest->id) }}" class="text-decoration-none text-dark">
                             <div class="trend-card d-flex align-items-center mb-3 shadow-sm rounded-2">
                                 <img class="trend-img"
-                                    src="{{ $blog->blog_thumbnail
-                                        ? asset('uploads/thumbnails/' . $blog->blog_thumbnail)
+                                    src="{{ $latest->blog_thumbnail
+                                        ? asset('uploads/thumbnails/' . $latest->blog_thumbnail)
                                         : asset('uploads/thumbnails/default.jpg') }}"
-                                    alt="{{ $blog->blog_title }}">
+                                    alt="{{ $latest->blog_title }}">
                                 <div class="trend-body ps-3">
-                                    <h6 class="trend-title">{{ $blog->blog_title }}</h6>
-                                    <p class="trend-date m-0">{{ $blog->created_at->format('d M, Y') }}</p>
+                                    <h6 class="trend-title">{{ $latest->blog_title }}</h6>
+                                    <p class="trend-date m-0">{{ $latest->created_at->format('d M, Y') }}</p>
                                 </div>
                             </div>
                         </a>
@@ -51,6 +51,10 @@
 
                     <div class="card-body blog-content">
                         <span class="cat-view">{{ $blog->blog_cat }}</span>
+                        <p class="text-muted">
+                            <i class="fa fa-eye"></i> {{ $blog->views }} views
+                        </p>
+
                         <div class="blog-location">
                             <i class="fa-solid fa-location-dot"></i> {{ $blog->blog_location }}
                         </div>

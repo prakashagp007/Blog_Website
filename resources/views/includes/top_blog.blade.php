@@ -10,8 +10,7 @@
                         {{-- <h4 class="trend-heading mb-3">Trending Now</h4> --}}
                         @foreach ($latestblogs as $blog)
                             <a href="{{ route('blog.show', $blog->id) }}" class="text-decoration-none text-dark">
-                                <div
-                                    class="trend-card-top d-flex align-items-center mb-3">
+                                <div class="trend-card-top d-flex align-items-center mb-3">
                                     <img class="trend-img1"
                                         src="{{ $blog->blog_thumbnail
                                             ? asset('uploads/thumbnails/' . $blog->blog_thumbnail)
@@ -20,7 +19,13 @@
                                     <div class="trend-body ps-3">
                                         <h6 class="trend-title">{{ $blog->blog_title }}</h6>
                                         <p class="trend-date top_blog_desc m-0">{{ $blog->blog_description }}</p>
-                                        {{-- <p class="trend-date m-0">{{ $blog->created_at->format('d M, Y') }}</p> --}}
+                                        <div class="d-flex gap-3 mt-2">
+                                            <p class="trend-date m-0">{{ $blog->created_at->format('d M, Y') }}</p>
+                                            <p class="trend-date m-0"><i class="fa-solid fa-location-dot"></i>
+                                                {{ $blog->blog_location }}</p>
+                                            <p class="trend-date m-0"><i class="fa fa-eye"></i> {{ $blog->views }}
+                                                views</p>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -46,6 +51,12 @@
                                                 <h6 class="trend-title-grid">{{ $blog->blog_title }}</h6>
                                                 <p class="trend-date top_blog_desc m-0">{{ $blog->blog_description }}
                                                 </p>
+                                                <div class="d-flex mt-2 gap-3">
+                                            <p class="trend-date m-0"><i class="fa-solid fa-location-dot"></i>
+                                                {{ $blog->blog_location }}</p>
+                                            <p class="trend-date m-0"><i class="fa fa-eye"></i> {{ $blog->views }}
+                                                views</p>
+                                        </div>
                                             </div>
                                         </div>
                                     </a>

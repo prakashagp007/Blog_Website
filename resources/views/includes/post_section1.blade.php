@@ -30,12 +30,20 @@
 
                                     <div class="card-body crd_bdy_ps1">
                                         <h5 class=" crd_ttl_ps1">{{ $blog->blog_title }}</h5>
+
                                         <p class="abs">{{ $blog->blog_cat }}</p>
                                         <p class="card-text crd_txt_ps1">{{ $blog->blog_description }}
                                         </p>
+
                                         <p class="text-muted crd_date_ps1">
                                             Published on {{ $blog->created_at->format('d M, Y') }}
                                         </p>
+                                        <div class="d-flex justify-content-center gap-3 mt-2">
+                                            <p class="trend-date m-0"><i class="fa-solid fa-location-dot"></i>
+                                                {{ $blog->blog_location }}</p>
+                                            <p class="trend-date m-0"><i class="fa fa-eye"></i> {{ $blog->views }}
+                                                views</p>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -47,7 +55,7 @@
             @endif
         </div>
 
-    
+
 
 
     </section>

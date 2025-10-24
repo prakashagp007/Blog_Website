@@ -19,6 +19,13 @@
                         <div class="blog-content">
                             <h5 class="blog-title">{{ $blog->blog_title }}</h5>
                             <p class="blog-desc m-0">{{ $blog->blog_description }}</p>
+                            <div class="d-flex gap-3 mt-2">
+
+
+                                <p class="trend-date m-0">{{ $blog->created_at->format('d M, Y') }}</p>
+                                <p class="trend-date m-0"><i class="fa-solid fa-location-dot"></i> {{ $blog->blog_location }}</p>
+                                <p class="trend-date m-0"><i class="fa fa-eye"></i> {{ $blog->views }} views</p>
+                            </div>
                             <a href="{{ route('blog.show', $blog->id) }}" class="blog-btn mt-3">Read More</a>
                         </div>
                     </div>
@@ -54,7 +61,11 @@
                                         alt="{{ $blog->blog_title }}">
                                     <div class="trend-body ps-3">
                                         <h6 class="trend-title">{{ $blog->blog_title }}</h6>
-                                        <p class="trend-date m-0">{{ $blog->created_at->format('d M, Y') }}</p>
+                                        <div class="d-flex gap-3">
+                                            <p class="trend-date m-0">{{ $blog->created_at->format('d M, Y') }}</p>
+                                            <p class="trend-date m-0"><i class="fa fa-eye"></i> {{ $blog->views }}
+                                                views</p>
+                                        </div>
                                     </div>
                                 </div>
                             </a>
