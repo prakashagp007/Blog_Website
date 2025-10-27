@@ -10,21 +10,14 @@
 
 
 
-    {{-- Desktop Menu --}}
-    <nav class="menu12">
-        <ul class="header_menus">
-            @foreach ($headers as $menu)
-                <li>
-                    <a class="menu-link" href="{{ url($menu->menu_link) }}">{{ $menu->menu_name }}</a>
-                </li>
-            @endforeach
-        </ul>
-    </nav>
+
 
     {{-- Logo --}}
     @if ($headers->first() && $headers->first()->logo)
         <div class="logo">
+            <a href="{{ route('home') }}">
             <img src="{{ asset('storage/' . $headers->first()->logo) }}" alt="Logo">
+            </a>
         </div>
     @endif
 
@@ -46,37 +39,7 @@
 
     </div>
 
-    {{-- Hamburger for mobile --}}
-    <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-    </div>
 
-    {{-- Mobile menu --}}
-    <div class="mobile-menu" id="mobileMenu">
-        @foreach ($headers as $menu)
-            <a class="menu-link" href="{{ url($menu->menu_link) }}">{{ $menu->menu_name }}</a>
-        @endforeach
-        @if ($headers->first() && $headers->first()->button_name)
-            <a href="{{ url($headers->first()->button_link) }}" class="header-btn">
-                {{ $headers->first()->button_name }}
-            </a>
-        @endif
-    </div>
+
+
 </header>
-
-
-
-
-<script defer>
-    document.addEventListener('DOMContentLoaded', function() {
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        if (hamburger && mobileMenu) {
-            hamburger.addEventListener('click', function() {
-                mobileMenu.classList.toggle('active');
-                this.classList.toggle('open');
-            });
-        }
-    });
-</script>
