@@ -10,21 +10,14 @@
 
 
 
-    {{-- Desktop Menu --}}
-    <nav class="menu12">
-        <ul class="header_menus">
-            @foreach ($headers as $menu)
-                <li>
-                    <a class="menu-link" href="{{ url($menu->menu_link) }}">{{ $menu->menu_name }}</a>
-                </li>
-            @endforeach
-        </ul>
-    </nav>
+
 
     {{-- Logo --}}
     @if ($headers->first() && $headers->first()->logo)
         <div class="logo">
+            <a href="{{ route('home') }}">
             <img src="{{ asset('storage/' . $headers->first()->logo) }}" alt="Logo">
+            </a>
         </div>
     @endif
 
@@ -39,45 +32,85 @@
         @endif
 
 
-        <div class="social-icons">
-            @foreach ($socialLinks as $link)
-                <a href="{{ $link->url }}" target="_blank">
-                    <i class="{{ $link->icon_class }}"></i>
-                </a>
-            @endforeach
+        <div>
+            @include('includes.social_media')
         </div>
 
 
     </div>
 
-    {{-- Hamburger for mobile --}}
-    <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-    </div>
 
-    {{-- Mobile menu --}}
-    <div class="mobile-menu" id="mobileMenu">
-        @foreach ($headers as $menu)
-            <a class="menu-link" href="{{ url($menu->menu_link) }}">{{ $menu->menu_name }}</a>
-        @endforeach
-        @if ($headers->first() && $headers->first()->button_name)
-            <a href="{{ url($headers->first()->button_link) }}" class="header-btn">
-                {{ $headers->first()->button_name }}
-            </a>
-        @endif
-    </div>
+
+
 </header>
 
-<script defer>
-    document.addEventListener('DOMContentLoaded', function() {
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
 
-        if (hamburger && mobileMenu) {
-            hamburger.addEventListener('click', function() {
-                mobileMenu.classList.toggle('active');
-                this.classList.toggle('open');
-            });
-        }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ asset('css/top_sliding.css') }}">
+
+<div class="sliding-blog container-lg">
+    <div class="row align-items-center" style="--bs-gutter-x: 10px;">
+        <div class="col-lg-9 col-md-8 col-sm-12 col-12">
+
+            <div class=" category-container">
+    <button class="scroll-btn scroll-left">
+        <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <div class="category-scroll">
+        @php
+            $unique_categories = $blogs12->pluck('blog_cat')->unique();
+        @endphp
+
+        @foreach ($unique_categories as $category)
+            @php
+                $category_slug = \Illuminate\Support\Str::slug($category);
+            @endphp
+            <a href="{{ route('category.show', $category_slug) }}" class="text-decoration-none">
+                <li class="head-links">{{ $category }}</li>
+            </a>
+        @endforeach
+    </div>
+
+    <button class="scroll-btn scroll-right">
+        <i class="fa-solid fa-chevron-right"></i>
+    </button>
+</div>
+
+
+        </div>
+
+        <!-- Right Social Panel -->
+        <div class="col-lg-3 col-md-4 col-sm-12 col-12 mt-3 mt-lg-0">
+
+            <div class="search-bar ">
+                <form action="{{ route('blog.search') }}" method="GET" class="d-flex gap-2 m-0 p-0">
+                    <input type="text" name="query" class="form-control inp-header" placeholder="Search..."
+                        required>
+                    <button type="submit" class="search-icon">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const scrollContainer = document.querySelector('.category-scroll');
+    const leftBtn = document.querySelector('.scroll-left');
+    const rightBtn = document.querySelector('.scroll-right');
+
+    rightBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: 250, behavior: 'smooth' });
+    });
+
+    leftBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: -250, behavior: 'smooth' });
     });
 </script>
+

@@ -6,6 +6,13 @@
     href="https://fonts.googleapis.com/css2?family=Aclonica&family=Emblema+One&family=IM+Fell+Great+Primer+SC&family=Keania+One&family=Lemonada:wght@300..700&family=Redressed&family=Wallpoet&family=Yatra+One&display=swap"
     rel="stylesheet">
 
+{{--  --}}
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ asset('css/top_sliding.css') }}">
+
 <header class="header_one container-lg sticky-top">
 
 
@@ -16,7 +23,7 @@
     @if ($headers->first() && $headers->first()->logo)
         <div class="logo">
             <a href="{{ route('home') }}">
-            <img src="{{ asset('storage/' . $headers->first()->logo) }}" alt="Logo">
+                <img src="{{ asset('storage/' . $headers->first()->logo) }}" alt="Logo">
             </a>
         </div>
     @endif
@@ -44,38 +51,35 @@
 
 </header>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link rel="stylesheet" href="{{ asset('css/top_sliding.css') }}">
 
 <div class="sliding-blog container-lg">
     <div class="row align-items-center" style="--bs-gutter-x: 10px;">
         <div class="col-lg-9 col-md-8 col-sm-12 col-12">
 
             <div class=" category-container">
-    <button class="scroll-btn scroll-left">
-        <i class="fa-solid fa-chevron-left"></i>
-    </button>
+                <button class="scroll-btn scroll-left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
 
-    <div class="category-scroll">
-        @php
-            $unique_categories = $latblog->pluck('blog_cat')->unique();
-        @endphp
+                <div class="category-scroll">
+                    @php
+                        $unique_categories = $allblogs->pluck('blog_cat')->unique();
+                    @endphp
 
-        @foreach ($unique_categories as $category)
-            @php
-                $category_slug = \Illuminate\Support\Str::slug($category);
-            @endphp
-            <a href="{{ route('category.show', $category_slug) }}" class="text-decoration-none">
-                <li class="head-links">{{ $category }}</li>
-            </a>
-        @endforeach
-    </div>
+                    @foreach ($unique_categories as $category)
+                        @php
+                            $category_slug = \Illuminate\Support\Str::slug($category);
+                        @endphp
+                        <a href="{{ route('category.show', $category_slug) }}" class="text-decoration-none">
+                            <li class="head-links">{{ $category }}</li>
+                        </a>
+                    @endforeach
+                </div>
 
-    <button class="scroll-btn scroll-right">
-        <i class="fa-solid fa-chevron-right"></i>
-    </button>
-</div>
+                <button class="scroll-btn scroll-right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
 
 
         </div>
@@ -105,11 +109,16 @@
     const rightBtn = document.querySelector('.scroll-right');
 
     rightBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({ left: 250, behavior: 'smooth' });
+        scrollContainer.scrollBy({
+            left: 250,
+            behavior: 'smooth'
+        });
     });
 
     leftBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({ left: -250, behavior: 'smooth' });
+        scrollContainer.scrollBy({
+            left: -250,
+            behavior: 'smooth'
+        });
     });
 </script>
-

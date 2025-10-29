@@ -53,7 +53,7 @@ public function index()
         $categories = $latblog;
         $socialLinks =SocialLink::all();
         $blog->increment('views');
-        return view('content.content', compact('blog', 'headers','latestblogs', 'categories', 'socialLinks'));
+        return view('content.content', compact('blog','latblog', 'headers','latestblogs', 'categories', 'socialLinks'));
     }
 
     /**
@@ -265,12 +265,12 @@ public function showByCategory($category_slug)
     $blogs = Blog::where('blog_cat', $category_name)->get();
 
     $headers = Header::all();
-    $latblog = Blog::latest()->get();
-    $latestblogs = $latblog->take(5);
-    $categories = $latblog;
+    $blogs12 = Blog::latest()->get();
+    $latestblogs = $blogs12->take(5);
+    $categories = $blogs12;
     $socialLinks =SocialLink::all();
 
-    return view('category.category', compact('blogs', 'category_name','headers','latestblogs','categories','socialLinks'));
+    return view('category.category', compact('blogs','blogs12','category_name','headers','latestblogs','categories','socialLinks'));
 }
 
 public function search(Request $request)

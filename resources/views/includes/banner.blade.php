@@ -23,7 +23,7 @@
                                         <h2 class="caption-title">{{ $blog->blog_title }}</h2>
                                         <p class="caption-text">{{ Str::limit($blog->blog_description, 100) }}</p>
 
-                                        <div class="d-flex align-items-center justify-content-center gap-3 mb-3">
+                                        <div class="d-flex align-items-center justify-content-center gap-lg-3 gap-md-3 gap-sm-2 gap-1 mb-3">
 
 
                                 <p class="trend-date m-0">{{ $blog->created_at->format('d M, Y') }}</p>
@@ -58,7 +58,7 @@
                 {{-- <h4 class="trend-heading mb-3">Trending Now</h4> --}}
                 @foreach ($latestblogs as $blog)
                     <a href="{{ route('blog.show', $blog->id) }}" class="text-decoration-none text-dark">
-                        <div class="trend-card d-flex align-items-center mb-3 shadow-sm rounded-4">
+                        <div class="trend-card d-flex align-items-center mb-lg-3 mb-md-3 mb-sm-2 mb-1 shadow-sm rounded-4">
                             <img class="trend-img"
                                 src="{{ $blog->blog_thumbnail
                                     ? asset('uploads/thumbnails/' . $blog->blog_thumbnail)

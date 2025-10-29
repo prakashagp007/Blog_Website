@@ -11,6 +11,8 @@
     @include('includes.post_section1')
     @include('includes.tab')
     @include('includes.top_blog')
+
     @include('includes.categories')
+    @include('includes.post_grid')
     @include('includes.footer')
 @endsection

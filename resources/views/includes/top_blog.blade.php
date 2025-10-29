@@ -4,7 +4,7 @@
     <section class="favourite_blogs">
         <div class="container-lg mb-5">
             <div class="row align-items-center">
-                <div class="col-5">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-12">
                     <h3 class="blog-heading mt-4 mb-4">Favourite Blogs</h3>
                     @if ($latestblogs && $latestblogs)
                         {{-- <h4 class="trend-heading mb-3">Trending Now</h4> --}}
@@ -34,7 +34,7 @@
                 </div>
 
 
-                <div class="col-7 mt-5">
+                <div class="col-lg-7 col-md-7 col-sm-12 col-12 mt-5">
                     @if ($latestblogs && $latestblogs)
                         <div class="row g-3"> <!-- grid row with gap -->
                             @foreach ($latestblogs as $blog)
