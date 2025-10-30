@@ -4,4 +4,5 @@
 
 @section('content')
     @include('includes.category_content')
+    @include('includes.category_footer')
 @endsection

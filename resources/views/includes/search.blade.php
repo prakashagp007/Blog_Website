@@ -65,4 +65,6 @@
             </div>
         </div>
     </div>
+
 </div>
+    @include('includes.search_footer')

@@ -38,7 +38,7 @@
                                         <p class="text-muted crd_date_ps1">
                                             Published on {{ $blog->created_at->format('d M, Y') }}
                                         </p>
-                                        <div class="d-flex justify-content-center gap-3 mt-2">
+                                        <div class="d-flex justify-content-center gap-3 mt-lg-2 mt-md-2 mt-sm-1 mt-1">
                                             <p class="trend-date m-0"><i class="fa-solid fa-location-dot"></i>
                                                 {{ $blog->blog_location }}</p>
                                             <p class="trend-date m-0"><i class="fa fa-eye"></i> {{ $blog->views }}

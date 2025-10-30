@@ -143,4 +143,11 @@
 
         </div>
     </div>
+
+    @include('includes.content_footer')
+
+
+    {{--  --}}
+
+
 @endsection

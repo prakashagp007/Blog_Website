@@ -16,11 +16,35 @@
 
     .tab-nav-pills {
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         gap: 12px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        padding-bottom: 8px;
         margin-bottom: 20px;
     }
+
+    /* Optional: hide ugly scrollbar (modern browsers) */
+    .tab-nav-pills::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .tab-nav-pills::-webkit-scrollbar-thumb {
+        background: #c3a68b;
+        border-radius: 10px;
+    }
+
+    .tab-nav-pills::-webkit-scrollbar-track {
+        background: #f4ece4;
+    }
+
+    .tab-nav-link {
+        flex: 0 0 auto;
+        /* prevents shrinking */
+    }
+
 
     .tab-nav-link {
         border-radius: 8px;
@@ -221,7 +245,7 @@
                                         <div class="tab-blog-footer d-flex gap-3">
                                             <span><i class="fa-regular fa-calendar"></i>
                                                 {{ $blog->created_at->format('d M, Y') }}</span>
-                                              <span><i class="fa fa-eye"></i> {{ $blog->views }} views</span>
+                                            <span><i class="fa fa-eye"></i> {{ $blog->views }} views</span>
                                         </div>
                                     </div>
                                 </div>

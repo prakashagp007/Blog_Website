@@ -5,8 +5,8 @@
         align-items: center;
         justify-content: start;
         column-gap: 10px;
-        width:fit-content;
-            /* border: 1px solid #eee; */
+        width: fit-content;
+        /* border: 1px solid #eee; */
     }
 
     .category-card:hover {
@@ -40,4 +40,42 @@
         letter-spacing: 0.5px;
         color: #795c44;
         font-family: 'merienda', cursive;
+    }
+
+    .category-scroll1 {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        padding-bottom: 8px;
+    }
+
+    /* For smooth look */
+    .category-scroll::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .category-scroll1::-webkit-scrollbar-thumb {
+        background: #c3a68b;
+        border-radius: 10px;
+    }
+
+    .category-scroll1::-webkit-scrollbar-track {
+        background: #f4ece4;
+    }
+
+    /* Prevent cards from wrapping */
+    .category-scroll1>div {
+        flex: 0 0 auto;
+        /* prevents shrinking */
+    }
+
+    /* Optional — give a little hover effect */
+    .category-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .category-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
