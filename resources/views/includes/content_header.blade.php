@@ -81,7 +81,7 @@
         </div>
 
         <!-- Right Social Panel -->
-        <div class="col-lg-3 col-md-4 col-sm-12 col-12 mt-3 mt-lg-0">
+        <div class="col-lg-3 col-md-4 col-sm-12 col-12 ">
 
             <div class="search-bar ">
                 <form action="{{ route('blog.search') }}" method="GET" class="d-flex gap-2 m-0 p-0">

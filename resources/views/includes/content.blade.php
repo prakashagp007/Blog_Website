@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="stylesheet" href="{{ asset('css/content.css') }}">
 
     <div class="main-layout">
+        <div class="container-lg d-lg-none d-md-none d-block breadcrumb1">
+            <p><a href="{{ route('home') }}">Home</a> / {{ $blog->blog_cat }}</p>
+        </div>
 
         <div class="left-section">
 
-            <h5>Trending Blogs</h5>
+            <h5 class="my-3">Trending Blogs</h5>
             <ul>
                 @if ($latestblogs && $latestblogs)
                     {{-- <h4 class="trend-heading mb-3">Trending Now</h4> --}}
                     @foreach ($latestblogs as $latest)
                         <a href="{{ route('blog.show', $latest->id) }}" class="text-decoration-none text-dark">
-                            <div class="trend-card d-flex align-items-center mb-3 shadow-sm rounded-2">
+                            <div class="trend-card d-flex align-items-center mb-lg-3 mb-md-3 mb-1 shadow-sm rounded-2">
                                 <img class="trend-img"
                                     src="{{ $latest->blog_thumbnail
                                         ? asset('uploads/thumbnails/' . $latest->blog_thumbnail)
@@ -36,8 +36,8 @@
         </div>
 
 
-        <div class="center-section">
-            <div class="container-lg breadcrumb1">
+        <div class="center-section ">
+            <div class="container-lg d-lg-block d-md-block d-none breadcrumb1">
                 <p><a href="{{ route('home') }}">Home</a> / {{ $blog->blog_cat }}</p>
             </div>
 
@@ -51,7 +51,7 @@
 
                     <div class="card-body blog-content">
                         <span class="cat-view">{{ $blog->blog_cat }}</span>
-                        <p class="text-muted">
+                        <p class="viewerd">
                             <i class="fa fa-eye"></i> {{ $blog->views }} views
                         </p>
 
@@ -119,14 +119,6 @@
 
 
         <div class="right-section">
-            <div class="search-bar ">
-                <form action="{{ route('blog.search') }}" method="GET" class="d-flex gap-2 m-0 p-0">
-                    <input type="text" name="query" class="form-control inp-header" placeholder="Search..." required>
-                    <button type="submit" class="search-icon">
-                        <i class="fa fa-search text-light"></i>
-                    </button>
-                </form>
-            </div>
 
             <h5 class="mt-4">Categories</h5>
             <ul>

@@ -16,7 +16,7 @@
     @if ($headers->first() && $headers->first()->logo)
         <div class="logo">
             <a href="{{ route('home') }}">
-            <img src="{{ asset('storage/' . $headers->first()->logo) }}" alt="Logo">
+                <img src="{{ asset('storage/' . $headers->first()->logo) }}" alt="Logo">
             </a>
         </div>
     @endif
@@ -54,35 +54,35 @@
         <div class="col-lg-9 col-md-8 col-sm-12 col-12">
 
             <div class=" category-container">
-    <button class="scroll-btn scroll-left">
-        <i class="fa-solid fa-chevron-left"></i>
-    </button>
+                <button class="scroll-btn scroll-left">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
 
-    <div class="category-scroll">
-        @php
-            $unique_categories = $blogs12->pluck('blog_cat')->unique();
-        @endphp
+                <div class="category-scroll">
+                    @php
+                        $unique_categories = $blogs12->pluck('blog_cat')->unique();
+                    @endphp
 
-        @foreach ($unique_categories as $category)
-            @php
-                $category_slug = \Illuminate\Support\Str::slug($category);
-            @endphp
-            <a href="{{ route('category.show', $category_slug) }}" class="text-decoration-none">
-                <li class="head-links">{{ $category }}</li>
-            </a>
-        @endforeach
-    </div>
+                    @foreach ($unique_categories as $category)
+                        @php
+                            $category_slug = \Illuminate\Support\Str::slug($category);
+                        @endphp
+                        <a href="{{ route('category.show', $category_slug) }}" class="text-decoration-none">
+                            <li class="head-links">{{ $category }}</li>
+                        </a>
+                    @endforeach
+                </div>
 
-    <button class="scroll-btn scroll-right">
-        <i class="fa-solid fa-chevron-right"></i>
-    </button>
-</div>
+                <button class="scroll-btn scroll-right">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
 
 
         </div>
 
         <!-- Right Social Panel -->
-        <div class="col-lg-3 col-md-4 col-sm-12 col-12 mt-3 mt-lg-0">
+        <div class="col-lg-3 col-md-4 col-sm-12 col-12 mt-3 mt-lg-0 d-lg-block d-md-block d-none">
 
             <div class="search-bar ">
                 <form action="{{ route('blog.search') }}" method="GET" class="d-flex gap-2 m-0 p-0">
@@ -106,11 +106,16 @@
     const rightBtn = document.querySelector('.scroll-right');
 
     rightBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({ left: 250, behavior: 'smooth' });
+        scrollContainer.scrollBy({
+            left: 250,
+            behavior: 'smooth'
+        });
     });
 
     leftBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({ left: -250, behavior: 'smooth' });
+        scrollContainer.scrollBy({
+            left: -250,
+            behavior: 'smooth'
+        });
     });
 </script>
-

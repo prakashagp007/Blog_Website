@@ -67,58 +67,77 @@
         padding: 1px 7px 8px 7px !important;
         line-height: 15px !important;
     }
-    .img-ps1{
+
+    .img-ps1 {
         height: 150px !important;
     }
-    .crd_ttl_ps1{
+
+    .crd_ttl_ps1 {
         font-size: 20px !important;
         margin-bottom: 0px !important;
     }
-    .crd_txt_ps1{
+
+    .crd_txt_ps1 {
         font-size: 11px !important;
     }
-    .crd_date_ps1{
+
+    .crd_date_ps1 {
         font-size: 11px !important;
         margin-top: 3px !important;
         padding-top: 3px !important;
     }
-    .tab-nav-link{
+
+    .tab-nav-link {
         padding: 5px 10px !important;
         font-size: 12px;
     }
-    .tab-card-body h5{
+
+    .tab-card-body h5 {
         font-size: 16px !important;
     }
-    .tab-card-body p{
+
+    .tab-card-body p {
         font-size: 11px !important;
     }
-    .tab-blog-footer{
+
+    .tab-blog-footer {
         font-size: 10px !important;
     }
-    .trend-img-grid{
+
+    .trend-img-grid {
         height: 150px !important;
     }
-    .category-card .icon-wrapper{
+
+    .category-card .icon-wrapper {
         font-size: 18px !important;
     }
-    .category-name{
+
+    .category-name {
         font-size: 13px !important;
     }
-    .category-scroll1{
+
+    .category-scroll1 {
         padding-bottom: 0px !important;
     }
-    .foot_logo{
+
+    .foot_logo {
         width: 25% !important;
     }
-    .logo{
+
+    .logo {
         text-align: center;
     }
+
     .slinks {
         margin-top: 15px !important;
         font-size: 17px !important;
-    font-weight: 200 !important;
+        font-weight: 200 !important;
     }
-    .sl-ink .social-icons a{
+
+    .sl-ink .social-icons a {
         padding: 6px !important;
     }
 }
+
+
+
