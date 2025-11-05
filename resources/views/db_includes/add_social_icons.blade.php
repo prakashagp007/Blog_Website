@@ -53,9 +53,8 @@
     }
 </style>
 
-<div class="container py-5">
-    <div class="form-card shadow-lg p-4 rounded-4 mx-auto">
-        <h2 class="form-heading text-center mb-4">Add Social Media Link</h2>
+<div class="container pb-5">
+    <div class="form-card shadow-lg p-4 pt-0 rounded-4 mx-auto">
 
         <form action="{{ route('sociallinks.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

@@ -1,0 +1,49 @@
+/* view page */
+
+@media (max-width:600px) {
+
+    .social-icons a {
+        font-size: 10px !important;
+    }
+
+    .blog-img-wrapper {
+        height: 25vh !important;
+    }
+
+    .cat-heading {
+        font-size: 17px !important;
+    }
+
+    .blog-title {
+        font-size: 16px !important;
+    }
+
+    .blog-desc {
+        font-size: 10px !important;
+    }
+
+    .blog-btn {
+        width: 39% !important;
+        font-size: 12px !important;
+    }
+
+    .trend-card {
+        column-gap: 15px !important;
+    }
+
+    .widget h5 {
+        font-size: 16px !important;
+    }
+    .trend-img{
+        height: 50px !important;
+    }
+    .trend-title {
+        font-size: 13px !important;
+    }
+    .widget a{
+        font-size: 12px !important;
+    }
+    .widget ul li{
+        padding: 3px 0px !important;
+    }
+}

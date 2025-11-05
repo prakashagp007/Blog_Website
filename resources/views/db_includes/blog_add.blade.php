@@ -55,8 +55,6 @@
 
     <div class="container">
 
-        <h2 class="blog_ttl">Add Blog</h2>
-
         <div class="row justify-content-center">
 
             <div class="col-lg-12 col-md-8 col-sm-12 col-12">

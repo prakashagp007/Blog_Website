@@ -1,7 +1,5 @@
 <link rel="stylesheet" href="{{ asset('css/db_table.css') }}">
 
-<h3 class="tbl-ttl"><span>Blogs</span></h3>
-
 <table class="table table-bordered table1">
     <thead class="table-head">
         <tr>

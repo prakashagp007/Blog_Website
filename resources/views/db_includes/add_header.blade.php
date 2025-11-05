@@ -29,8 +29,6 @@
 
     <div class="card cd p-4">
 
-        <h3 class="blog_ttl">Header Section</h3>
-
 
 
         <form action="{{ route('header.store') }}" method="POST" enctype="multipart/form-data">

@@ -117,42 +117,129 @@
                     <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
 
-                @include('db_includes.db_table')
 
-                @include('db_includes.header_table')
-
-                @include('db_includes.social_icons_table')
 
             </div>
 
             {{-- Blog Content --}}
             <div class="tab-pane fade" id="blogs" role="tabpanel">
 
-                @include('db_includes.blog_add')
+                <h3 class="mb-4 text-center blog_ttl">Blog Management</h3>
 
+                <!-- Tabs -->
+                <ul class="nav nav-tabs d-flex justify-content-between" id="blogTabs" role="tablist">
 
+                    <li class="nav-item active" role="presentation">
+                        <button class="nav-link dbhead" id="table-tab" data-bs-toggle="tab" data-bs-target="#table"
+                            type="button" role="tab" aria-controls="table" aria-selected="false">
+                            Blog Table
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link dbhead " id="add-tab" data-bs-toggle="tab" data-bs-target="#add"
+                            type="button" role="tab" aria-controls="add" aria-selected="true">
+                            Add Blog <i class="fa-solid fa-square-plus"></i>
+                        </button>
+                    </li>
+                </ul>
+
+                <!-- Tab Contents -->
+                <div class="tab-content mt-3" id="blogTabsContent">
+                    <div class="tab-pane fade  " id="add" role="tabpanel" aria-labelledby="add-tab">
+                        @include('db_includes.blog_add')
+                    </div>
+                    <div class="tab-pane fade show active" id="table" role="tabpanel"
+                        aria-labelledby="table-tab">
+                        @include('db_includes.db_table')
+                    </div>
+                </div>
             </div>
 
-            {{-- Menus --}}
-            <div class="tab-pane fade" id="menus" role="tabpanel">
-                @include('db_includes.add_header')
-            </div>
 
-            {{-- Logo --}}
-            <div class="tab-pane fade" id="social-media" role="tabpanel">
-                @include('db_includes.add_social_icons')
-            </div>
+     
 
-            {{-- Analytics --}}
-            <div class="tab-pane fade" id="analytics" role="tabpanel">
-                <h3>Analytics</h3>
-                <p>Charts and analytics go here.</p>
+        {{-- Menus --}}
+        <div class="tab-pane fade" id="menus" role="tabpanel">
+
+            <h3 class="text-center mb-4 blog_ttl">Header Section</h3>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs mx-4 justify-content-between" id="blogTabs" role="tablist">
+                <li class="nav-item " role="presentation">
+                    <button class="nav-link dbhead active" id="blogAddTab" data-bs-toggle="tab"
+                        data-bs-target="#blogAdd" type="button" role="tab" aria-controls="blogAdd"
+                        aria-selected="true">
+                        Header Table
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link dbhead" id="dbTableTab" data-bs-toggle="tab" data-bs-target="#dbTable"
+                        type="button" role="tab" aria-controls="dbTable" aria-selected="false">
+                        Add Header
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Contents -->
+            <div class="tab-content border border-top-0 p-3 bg-white rounded-bottom" id="blogTabsContent">
+                <div class="tab-pane fade show active" id="blogAdd" role="tabpanel" aria-labelledby="blogAddTab">
+                    @include('db_includes.header_table')
+                </div>
+
+                <div class="tab-pane fade" id="dbTable" role="tabpanel" aria-labelledby="dbTableTab">
+                    @include('db_includes.add_header')
+                </div>
             </div>
         </div>
 
+        {{-- Logo --}}
+        <div class="tab-pane fade" id="social-media" role="tabpanel">
+
+            <ul class="nav nav-tabs justify-content-between" id="blogTabs" role="tablist">
+
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link dbhead active" id="iconsTableTab" data-bs-toggle="tab"
+                        data-bs-target="#iconsTable" type="button" role="tab" aria-controls="iconsTable"
+                        aria-selected="false">
+                        Social Icons Table
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link dbhead " id="addIconsTab" data-bs-toggle="tab"
+                        data-bs-target="#addIcons" type="button" role="tab" aria-controls="addIcons"
+                        aria-selected="true">
+                        Add Social Icons
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Contents -->
+            <div class="tab-content border border-top-0 p-3 bg-white rounded-bottom" id="blogTabsContent">
 
 
-        {{-- Tab Content --}}
+                <div class="tab-pane show active fade" id="iconsTable" role="tabpanel" aria-labelledby="iconsTableTab">
+                    @include('db_includes.social_icons_table')
+                </div>
+                 <div class="tab-pane fade" id="addIcons" role="tabpanel" aria-labelledby="addIconsTab">
+                    @include('db_includes.add_social_icons')
+                </div>
+            </div>
+
+
+        </div>
+
+        {{-- Analytics --}}
+        <div class="tab-pane fade" id="analytics" role="tabpanel">
+
+
+
+        </div>
+    </div>
+    </div>
+
+
+
+    {{-- Tab Content --}}
     </div>
 
 

@@ -33,18 +33,29 @@
         border-radius: 4px !important;
         line-height: 1.7 !important;
     }
-    .viewerd{
+
+    .viewerd {
         font-size: 10px !important;
         font-weight: 500 !important;
         padding: 5px 10px !important;
         border-radius: 4px !important;
         line-height: 1.7 !important;
     }
+
     .blog-location {
-    gap: 2px !important;
-    border-radius: 5px !important;
-    padding: 4px 8px !important;
-    font-size: 12px !important;
-    line-height: 1.7 !important;
-}
+        gap: 2px !important;
+        border-radius: 5px !important;
+        padding: 4px 8px !important;
+        font-size: 12px !important;
+        line-height: 1.7 !important;
+    }
+
+    .trend-title {
+        font-size: 12px !important;
+    }
+
+    .trend-img {
+        height: 55px !important;
+    }
+
 }

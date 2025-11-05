@@ -11,7 +11,7 @@
             @else
                 <div class="row">
                     @foreach ($blogs as $blog)
-                        <div class="col-md-6 col-sm-12 mb-4">
+                        <div class="col-md-6 col-sm-12 mb-3">
                             <div class="card blog-card h-100">
                                 {{-- Blog Thumbnail --}}
                                 <img class="img-ps1"
@@ -41,7 +41,7 @@
         </div>
 
         {{-- Right – Sidebar --}}
-        <div class="col-lg-4 col-md-12 mt-4 mt-lg-0">
+        <div class="col-lg-4 col-md-12 mt-3 mt-lg-0">
             {{-- Categories Widget --}}
             <div class="sidebar">
                 <h5><i class="fa fa-layer-group me-2"></i>All Categories</h5>

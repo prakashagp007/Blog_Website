@@ -1,4 +1,10 @@
 /* home page */
+.blog-heading {
+    font-family: "Aclonica", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #795c45;
+}
 
 @media (max-width:600px) {
     .header_one img {
@@ -138,6 +144,3 @@
         padding: 6px !important;
     }
 }
-
-
-

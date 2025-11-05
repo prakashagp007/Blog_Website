@@ -2,7 +2,6 @@
     integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="container">
-    <h3 class="tbl-ttl mt-5"><span>Social Icons</span></h3>
 
     <table class="table table-bordered table1">
         <thead>
