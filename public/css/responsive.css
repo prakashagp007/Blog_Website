@@ -143,4 +143,13 @@
     .sl-ink .social-icons a {
         padding: 6px !important;
     }
+
+    .cinematic-title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px !important;
+    }
 }

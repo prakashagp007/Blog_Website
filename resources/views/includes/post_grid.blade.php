@@ -1,17 +1,21 @@
 <style>
+    /* Base container */
     .cinematic-strip {
         display: flex;
         height: 60vh;
         width: 100%;
         margin-bottom: 40px;
+        gap: 10px;
     }
 
+    /* Each item */
     .cinematic-item {
         flex: 1;
         position: relative;
         overflow: hidden;
         transition: flex 0.8s ease, transform 0.5s ease;
         cursor: pointer;
+        border-radius: 12px;
     }
 
     .cinematic-item:hover {
@@ -27,6 +31,7 @@
         background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
         transition: opacity 0.5s ease;
         opacity: 0.7;
+        border-radius: 12px;
     }
 
     .cinematic-bg {
@@ -81,39 +86,69 @@
         gap: 10px;
     }
 
+    /* Mobile View – Switch to Grid */
     @media (max-width: 900px) {
         .cinematic-strip {
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+            height: auto;
         }
 
         .cinematic-item {
             flex: none;
-            height: 20%;
+            height: 200px;
+            transform: none !important;
         }
 
         .cinematic-item:hover {
             flex: none;
-            transform: scale(1.03);
+            transform: none;
+        }
+
+        .cinematic-item::after {
+            opacity: 0.5;
+        }
+
+        .cinematic-info {
+            position: absolute;
+            bottom: 10px;
+            padding: 15px;
+            opacity: 1;
+            transform: none;
+        }
+
+        .cinematic-title {
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+
+        .cinematic-cat {
+            font-size: 0.8rem;
+            color: #ddd;
+        }
+
+        .cinematic-meta {
+            display: none;
         }
     }
 </style>
 
 <div class="cinematic-strip">
     @foreach ($blogs->take(5) as $blog)
+        <a href="{{ route('blog.show', $blog->id) }}" class="cinematic-item">
+            <div class="cinematic-bg"
+                style="background-image: url('{{ $blog->blog_thumbnail ? asset('uploads/thumbnails/' . $blog->blog_thumbnail) : asset('uploads/thumbnails/default.jpg') }}');">
+            </div>
 
-            <a href="{{ route('blog.show', $blog->id) }}" class="cinematic-item">
-                <div class="cinematic-bg"
-                    style="background-image: url('{{ $blog->blog_thumbnail ? asset('uploads/thumbnails/' . $blog->blog_thumbnail) : asset('uploads/thumbnails/default.jpg') }}');">
+            <div class="cinematic-info">
+                <h3 class="cinematic-title">{{ $blog->blog_title }}</h3>
+                <p class="cinematic-cat">{{ $blog->blog_cat }}</p>
+                <div class="cinematic-meta">
+                    <span><i class="fa-solid fa-calendar"></i> {{ $blog->created_at->format('d M, Y') }}</span>
+                    <span><i class="fa fa-eye"></i> {{ $blog->views }}</span>
                 </div>
-
-                <div class="cinematic-info">
-                    <h3 class="cinematic-title">{{ $blog->blog_title }}</h3>
-                    <p class="cinematic-cat">{{ $blog->blog_cat }}</p>
-                    <div class="cinematic-meta">
-                        <span><i class="fa-solid fa-calendar"></i> {{ $blog->created_at->format('d M, Y') }}</span>
-                        <span><i class="fa fa-eye"></i> {{ $blog->views }}</span>
-                    </div>
-                </div>
-            </a>
+            </div>
+        </a>
     @endforeach
 </div>

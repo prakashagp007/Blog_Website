@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use App\Models\Header;
 use App\Models\SocialLink;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+
 
 
 
@@ -34,13 +36,44 @@ public function index()
 
 // dashboard table for alteration
 
-    public function table()
+public function table()
 {
     $blogs = Blog::latest()->paginate(3);
     $headers = Header::all();
     $links = SocialLink::all();
 
-    return view('dashboard.dashboard', compact('blogs','headers','links'));
+    // 🔹 Analytics data
+    // $topBlogs = Blog::orderByDesc('views')->take(5)->get(['title', 'views', 'created_at']);
+    // $latestBlogs = Blog::latest()->take(5)->get(['title', 'created_at', 'blog_cat']);
+
+    $topBlogs = Blog::orderByDesc('views')->take(5)->get(['blog_title', 'views', 'created_at']);
+$latestBlogs = Blog::latest()->take(5)->get(['blog_title', 'created_at', 'blog_cat']);
+
+
+    // 🔹 For chart (Monthly blog count)
+    $monthlyData = Blog::select(
+        DB::raw('MONTH(created_at) as month'),
+        DB::raw('COUNT(*) as count')
+    )
+    ->groupBy('month')
+    ->orderBy('month', 'asc')
+    ->get();
+
+    // Convert to labels + values for JS chart
+    $chartLabels = $monthlyData->pluck('month')->map(function ($m) {
+        return date("M", mktime(0, 0, 0, $m, 1));
+    });
+    $chartData = $monthlyData->pluck('count');
+
+    return view('dashboard.dashboard', compact(
+        'blogs',
+        'headers',
+        'links',
+        'topBlogs',
+        'latestBlogs',
+        'chartLabels',
+        'chartData'
+    ));
 }
 
 

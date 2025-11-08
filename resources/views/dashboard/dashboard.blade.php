@@ -80,11 +80,11 @@
                 <button class="btn btn-outline-secondary me-3 d-md-none" id="sidebar-toggle">
                     <i class="fas fa-bars"></i>
                 </button>
-                <div class="position-relative">
+                {{-- <div class="position-relative">
                     <input type="text" class="form-control search-bar" placeholder="Search...">
                     <i class="fas fa-search position-absolute"
                         style="top: 50%; right: 10px; transform: translateY(-50%); color: #6c757d;"></i>
-                </div>
+                </div> --}}
             </div>
             <div class="user-menu">
                 <div class="dropdown">
@@ -116,6 +116,8 @@
                 @if (session('error'))
                     <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
+
+                @include('db_includes.db_home')
 
 
 
@@ -156,7 +158,7 @@
             </div>
 
 
-     
+
 
         {{-- Menus --}}
         <div class="tab-pane fade" id="menus" role="tabpanel">
@@ -194,6 +196,8 @@
 
         {{-- Logo --}}
         <div class="tab-pane fade" id="social-media" role="tabpanel">
+
+             <h3 class="text-center mb-4 blog_ttl">Social Media Section</h3>
 
             <ul class="nav nav-tabs justify-content-between" id="blogTabs" role="tablist">
 
